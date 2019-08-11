@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Attempts</h1>
+<p>Segment: {{ segment["segment_id"] }}</p>
+<table border="1">
+    <tr>
+        <th>Member ID</th>
+        <th>Effort ID</th>
+        <th>Date</th>
+        <th>Recorded Time</th>
+        <th>Handicap</th>
+        <th>Converted Time</th>
+    </tr>
+    {% for attempt in attempts %}
+    <tr>
+        <td>{{ attempt["first_name"] }}</td>
+        <td>{{ attempt["effort_id"] }}</td>
+        <td>{{ attempt["activity_timestamp"] }}</td>
+        <td>{{ attempt["recorded_time_secs"] }}</td>
+        <td>{{ attempt["handicap_for_attempt"] }}</td>
+        <td>TBD</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+
+<!--    effort_id = IntegerField(primary_key=True)-->
+<!--    member_id = ForeignKeyField(Member)-->
+<!--    segment_id = ForeignKeyField(Segment)-->
+<!--    recorded_time_secs = IntegerField()-->
+<!--    handicap_for_attempt = FloatField()-->
+<!--    activity_timestamp = DateTimeField()-->
+<!--    activity_id = IntegerField(null=True)-->
+<!--    audit_inserted = DateTimeField(constraints=[SQL('DEFAULT CURRENT_TIMESTAMP')])-->

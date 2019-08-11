@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>BBBBC Segment Tracker</h1>
+<p>This months segment: <a href="http://www.strava.com/segments/{{ segment['id'] }}">{{ segment["name"] }}</a></p>
+<p>Do you want to <a href="{{ url_for('connect') }}">connect?</a></p>
+<p>Show list of connected <a href="{{ url_for('members') }}">members.</a></p></body>
+{% endblock %}
