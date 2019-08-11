@@ -92,7 +92,10 @@ def connect():
 
             return redirect(url_for('index'))
 
-        return render_template('connect.html')
+        client = Client()
+        authorize_url = client.authorization_url(config.strava_client_id, config.redirect_url, state="response")
+
+        return render_template('connect.html', target_url=authorize_url)
 
     return redirect(url_for('connect'))
 

@@ -5,12 +5,5 @@
 {% if error %}
 <p class=error><strong>Error:</strong> {{ error }}
     {% endif %}
-    <form action="https://www.strava.com/oauth/authorize" method=get>
-        <input type="hidden" name="client_id" value="34740">
-        <input type="hidden" name="redirect_uri" value="http://127.0.0.1:5000/connect">
-        <input type="hidden" name="response_type" value="code">
-        <input type="hidden" name="state" value="response">
-        <input type="hidden" name="scope" value="activity:read">
-<p><input type=submit value=Connect>
-    </form>
-    {% endblock %}
+    <a href="{{ target_url }}">Connect!</a>
+{% endblock %}

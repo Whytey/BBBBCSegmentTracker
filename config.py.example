@@ -1,3 +1,4 @@
 strava_client_id=123456
 strava_client_secret='secret_key'
+redirect_url='http://127.0.0.1:5000/connect'
 db_file='bbbbc_segments.db'
