@@ -3,11 +3,12 @@ from playhouse.flask_utils import FlaskDB
 from stravalib import Client
 
 import config
-from db import database, Member, Segment, Attempt
+from db import db, Member, Segment, Attempt
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'top-secret!'
 
-db_wrapper = FlaskDB(app, database)
+db_wrapper = FlaskDB(app, db)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -85,8 +86,9 @@ def connect():
 
             athlete = client.get_athlete()
 
-            Member.create(last_name=athlete.lastname, first_name=athlete.firstname, athlete_id=athlete.id,
+            Member.update(last_name=athlete.lastname, first_name=athlete.firstname, athlete_id=athlete.id,
                           refresh_token=refresh_token, access_token=access_token, access_token_expiry=expires_at)
+
 
             flash('You were successfully connected.  Welcome {}!'.format(athlete.firstname))
 
@@ -101,5 +103,5 @@ def connect():
 
 
 if __name__ == '__main__':
-    database.create_tables([Member, Segment, Attempt])
+    db.create_tables([Member, Segment, Attempt])
     app.run(debug=True)

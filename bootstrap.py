@@ -4,23 +4,21 @@
 # for the DB
 
 import argparse
-
-from db import database, Member, Segment, Attempt, Misc
+import peeweedbevolve
+from db import db, Member, Segment, Attempt, Misc
 
 parser = argparse.ArgumentParser(description='Create DB')
-parser.add_argument('--force', '-f', action='store_true',
-                    help='drops existing table data, recreates the schema and re-populates with Club members.  If not specified and the tables already exist, this script would error')
+parser.add_argument('--drop', '-d', action='store_true',
+                    help='drops existing table data and recreates the schema.  If not specified and the tables already exist any migrations required would be performed.')
 
 args = parser.parse_args()
 
 # Drop existing tables, recreate the schema
-database.connect()
-for table in [Member, Segment, Attempt, Misc]:
-    if table.table_exists():
-        if args.force:
-            table.drop_table()
-        else:
-            print("should error; {t} exists but we're not forcing".format(t=table))
-    table.create_table()
-
-database.close()
+db.connect()
+tables = [Member, Segment, Attempt, Misc]
+if args.drop:
+    print ("Dropping Tables")
+    db.drop_tables(tables)
+print ("Creating Tables")
+db.create_tables(tables)
+db.close()

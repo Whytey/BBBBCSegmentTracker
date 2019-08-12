@@ -1,55 +1,46 @@
-import os
-
-from peewee import *
+import peewee as pw
+from playhouse.db_url import connect
 
 import config
 
-database = SqliteDatabase(
-    os.path.join(
-        os.path.dirname(os.path.realpath(__file__)),
-        config.db_file
-    )
-)
+db = connect(config.db_url)
 
 
-# db = SqliteDatabase('~/PycharmProjects/BBBBCSegmentTracker/bbbbc_segments.db')
-
-
-class BaseModel(Model):
+class BaseModel(pw.Model):
     class Meta:
-        database = database
+        database = db
 
 
 class Member(BaseModel):
-    athlete_id = IntegerField(primary_key=True)
-    last_name = CharField()
-    first_name = CharField()
-    handicap = FloatField(default=1)
-    refresh_token = CharField(null=True)
-    access_token = CharField(null=True)
-    access_token_expiry = DateTimeField(null=True)
-    audit_inserted = DateTimeField(constraints=[SQL('DEFAULT CURRENT_TIMESTAMP')])
+    athlete_id = pw.IntegerField(primary_key=True)
+    last_name = pw.CharField()
+    first_name = pw.CharField()
+    handicap = pw.FloatField(default=1)
+    refresh_token = pw.CharField(null=True)
+    access_token = pw.CharField(null=True)
+    access_token_expiry = pw.BigIntegerField(null=True)
+    audit_inserted = pw.DateTimeField(constraints=[pw.SQL('DEFAULT CURRENT_TIMESTAMP')])
 
 
 class Segment(BaseModel):
-    id = IntegerField(primary_key=True)
-    date_from = DateField()
-    date_to = DateField()
-    segment_id = IntegerField()
-    audit_inserted = DateTimeField(constraints=[SQL('DEFAULT CURRENT_TIMESTAMP')])
+    id = pw.IntegerField(primary_key=True)
+    date_from = pw.DateField()
+    date_to = pw.DateField()
+    segment_id = pw.IntegerField()
+    audit_inserted = pw.DateTimeField(constraints=[pw.SQL('DEFAULT CURRENT_TIMESTAMP')])
 
 
 class Attempt(BaseModel):
-    effort_id = IntegerField(primary_key=True)
-    member_id = ForeignKeyField(Member)
-    segment_id = ForeignKeyField(Segment)
-    recorded_time_secs = IntegerField()
-    handicap_for_attempt = FloatField()
-    activity_timestamp = DateTimeField()
-    activity_id = IntegerField(null=True)
-    audit_inserted = DateTimeField(constraints=[SQL('DEFAULT CURRENT_TIMESTAMP')])
+    effort_id = pw.IntegerField(primary_key=True)
+    member_id = pw.ForeignKeyField(Member)
+    segment_id = pw.ForeignKeyField(Segment)
+    recorded_time_secs = pw.IntegerField()
+    handicap_for_attempt = pw.FloatField()
+    activity_timestamp = pw.DateTimeField()
+    activity_id = pw.IntegerField(null=True)
+    audit_inserted = pw.DateTimeField(constraints=[pw.SQL('DEFAULT CURRENT_TIMESTAMP')])
 
 
 class Misc(BaseModel):
-    schema_version = CharField()
-    club_id = IntegerField()
+    schema_version = pw.CharField()
+    club_id = pw.IntegerField()
