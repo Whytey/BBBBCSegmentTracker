@@ -86,7 +86,7 @@ def connect():
 
             athlete = client.get_athlete()
 
-            Member.update(last_name=athlete.lastname, first_name=athlete.firstname, athlete_id=athlete.id,
+            Member.get_or_create(last_name=athlete.lastname, first_name=athlete.firstname, athlete_id=athlete.id,
                           refresh_token=refresh_token, access_token=access_token, access_token_expiry=expires_at)
 
 
@@ -95,7 +95,7 @@ def connect():
             return redirect(url_for('index'))
 
         client = Client()
-        authorize_url = client.authorization_url(config.strava_client_id, config.redirect_url, state="response")
+        authorize_url = client.authorization_url(config.strava_client_id, request.base_url, state="response")
 
         return render_template('connect.html', target_url=authorize_url)
 

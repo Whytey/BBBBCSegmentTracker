@@ -5,4 +5,3 @@ requests
 peewee==3.9.5
 stravalib==0.10.2
 pymysql
-peewee-db-evolve

@@ -4,7 +4,6 @@
 # for the DB
 
 import argparse
-import peeweedbevolve
 from db import db, Member, Segment, Attempt, Misc
 
 parser = argparse.ArgumentParser(description='Create DB')
