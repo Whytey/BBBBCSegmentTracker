@@ -35,7 +35,7 @@ class StravaPoller():
                 print("{} vs {}".format(effort.elapsed_time, effort.moving_time))
                 rowid = Attempt.insert(effort_id=effort.id,
                                        member_id=effort.athlete.id,
-                                       segment_id=effort.segment.id,
+                                       segment_id=segment.id,
                                        recorded_time_secs=effort.elapsed_time.total_seconds(),
                                        handicap_for_attempt=member.handicap,
                                        activity_timestamp=effort.start_date_local,

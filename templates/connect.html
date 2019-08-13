@@ -2,6 +2,8 @@
 {% extends "layout.html" %}
 {% block body %}
 <h1>Connect</h1>
+<p>{{ url_for(request.endpoint) }}</p>
+<p>{{ request.base_url }}</p>
 {% if error %}
 <p class=error><strong>Error:</strong> {{ error }}
     {% endif %}

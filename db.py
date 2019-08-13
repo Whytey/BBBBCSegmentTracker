@@ -23,21 +23,21 @@ class Member(BaseModel):
 
 
 class Segment(BaseModel):
-    id = pw.IntegerField(primary_key=True)
+    id = pw.AutoField(primary_key=True)
     date_from = pw.DateField()
     date_to = pw.DateField()
-    segment_id = pw.IntegerField()
+    segment_id = pw.BigIntegerField()
     audit_inserted = pw.DateTimeField(constraints=[pw.SQL('DEFAULT CURRENT_TIMESTAMP')])
 
 
 class Attempt(BaseModel):
-    effort_id = pw.IntegerField(primary_key=True)
-    member_id = pw.ForeignKeyField(Member)
-    segment_id = pw.ForeignKeyField(Segment)
+    effort_id = pw.BigIntegerField(primary_key=True)
+    member_id = pw.ForeignKeyField(Member, backref='attempts')
+    segment_id = pw.ForeignKeyField(Segment, backref='attempts')
     recorded_time_secs = pw.IntegerField()
     handicap_for_attempt = pw.FloatField()
     activity_timestamp = pw.DateTimeField()
-    activity_id = pw.IntegerField(null=True)
+    activity_id = pw.BigIntegerField(null=True)
     audit_inserted = pw.DateTimeField(constraints=[pw.SQL('DEFAULT CURRENT_TIMESTAMP')])
 
 
