@@ -1,7 +1,4 @@
 flask>=1.0.0
-celery==3.1.17
-redis==2.10.3
 requests
-peewee==3.9.5
 stravalib==0.10.2
-pymysql
+google-cloud-firestore
