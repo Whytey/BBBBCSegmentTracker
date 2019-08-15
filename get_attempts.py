@@ -1,49 +1,53 @@
-import datetime
+import logging
+import sys
 import time
+
+logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 from stravalib import Client
 
 import config
-from db import Member, Segment, Attempt
+from model import Member, Challenge, Attempt
 
 
 class StravaPoller():
     def __init__(self):
         pass
 
-    def pull_data(self):
+    def pull_data(self, members, challenges):
         client = Client()
 
-        segment = (Segment.select().where(Segment.date_from <= datetime.datetime.now())).get()
+        for m in members:
+            logger.debug("processing member: {}".format(m))
 
-        members = Member.select()
-        for member in members:
-            print("Member: {}".format(member.athlete_id))
-            client.access_token = member.access_token
-            if time.time() > member.access_token_expiry:
-                print("Renewing token")
+            # Check if the access token needs renewing.  Should last 6hrs, so only needs doing once regardless of how many calls we make.
+            if time.time() > m.access_token_expiry:
+                logger.info("Renewing token")
                 refresh_response = client.refresh_access_token(client_id=config.strava_client_id,
                                                                client_secret=config.strava_client_secret,
-                                                               refresh_token=member.refresh_token)
-                member.access_token = refresh_response['access_token']
-                member.refresh_token = refresh_response['refresh_token']
-                member.access_token_expiry = refresh_response['expires_at']
-                member.save()
-            efforts = client.get_segment_efforts(segment.segment_id, start_date_local=segment.date_from,
-                                                 end_date_local=segment.date_to)
-            for effort in efforts:
-                print("{} vs {}".format(effort.elapsed_time, effort.moving_time))
-                rowid = Attempt.insert(effort_id=effort.id,
-                                       member_id=effort.athlete.id,
-                                       segment_id=segment.id,
-                                       recorded_time_secs=effort.elapsed_time.total_seconds(),
-                                       handicap_for_attempt=member.handicap,
-                                       activity_timestamp=effort.start_date_local,
-                                       activity_id=effort.activity.id).on_conflict_ignore().execute()
+                                                               refresh_token=m.refresh_token)
+                m.access_token = refresh_response['access_token']
+                m.refresh_token = refresh_response['refresh_token']
+                m.access_token_expiry = refresh_response['expires_at']
+                m.save()
 
-                print(rowid)
+            client.access_token = m.access_token
+            client.refresh_token = m.refresh_token
+            client.token_expires_at = m.access_token_expiry
+
+            for c in challenges:
+                logger.debug("Processing challenge: {}".format(c))
+
+                efforts = client.get_segment_efforts(c.segment_id, start_date_local=c.date_from,
+                                                     end_date_local=c.date_to)
+                for e in efforts:
+                    logger.debug("Processing effort: {}".format(e))
+                    Attempt.add(e, m, c)
 
 
 if __name__ == '__main__':
+    challenges = Challenge.objects.all()
+    members = Member.objects.all()
     poller = StravaPoller()
-    poller.pull_data()
+    poller.pull_data(members, challenges)

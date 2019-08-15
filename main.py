@@ -1,14 +1,14 @@
 from flask import Flask, request, render_template, redirect, url_for, flash
-from playhouse.flask_utils import FlaskDB
 from stravalib import Client
 
 import config
-from db import db, Member, Segment, Attempt
+from model import Member, Challenge, Attempt
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'top-secret!'
 
-db_wrapper = FlaskDB(app, db)
+
+# db_wrapper = FlaskDB(app, db)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -22,34 +22,36 @@ def index():
 @app.route('/members', methods=['GET', 'POST'])
 def members():
     if request.method == 'GET':
-        members = Member.select()
+        members = Member.objects.all()
 
         return render_template('members.html', members=members)
 
     return redirect(url_for('members'))
 
 
-@app.route('/segments', methods=['GET', 'POST'])
-def segments():
+@app.route('/challenges', methods=['GET', 'POST'])
+def challenges():
     if request.method == 'GET':
-        segments = Segment.select()
+        challenges = Challenge.objects.all()
 
-        return render_template('segments.html', segments=segments)
+        return render_template('challenges.html', challenges=challenges)
 
-    return redirect(url_for('segments'))
+    return redirect(url_for('challenges'))
 
 
-@app.route('/segment/<segment>', methods=['GET', 'POST'])
-def segment(segment):
+@app.route('/attempts/<challenge>', methods=['GET', 'POST'])
+def attempts(challenge):
     if request.method == 'GET':
-        s = (Segment.select().where(Segment.id == segment)).get()
-        attempts = Attempt.select(Attempt.effort_id, Member.first_name).join(Member).dicts()
-        for a in attempts:
-            print(a)
+        c = Challenge.objects.get(id=challenge)
+        # attempts = Attempt.objects.filter(challenge=c).get()
 
-        return render_template('attempts.html', segment=s, attempts=attempts)
+        # Need to do the following to filter on only those attempts for the challenge.
+        attempts = Attempt.objects.all()
+        attempts = [a for a in attempts if a.challenge.id == c.id]
 
-    return redirect(url_for('segment'))
+        return render_template('attempts.html', challenge=c, attempts=attempts)
+
+    return redirect(url_for('attempts'))
 
 
 @app.route('/connect', methods=['GET', 'POST'])
@@ -74,20 +76,16 @@ def connect():
             refresh_token = token_response['refresh_token']
             expires_at = token_response['expires_at']
 
-            # Now store that short-lived access token somewhere (a database?)
             client.access_token = access_token
-            # You must also store the refresh token to be used later on to obtain another valid access token
-            # in case the current is already expired
             client.refresh_token = refresh_token
-
-            # An access_token is only valid for 6 hours, store expires_at somewhere and
-            # check it before making an API call.
             client.token_expires_at = expires_at
 
             athlete = client.get_athlete()
 
-            Member.get_or_create(last_name=athlete.lastname, first_name=athlete.firstname, athlete_id=athlete.id,
-                          refresh_token=refresh_token, access_token=access_token, access_token_expiry=expires_at)
+            # Member.objects.create(last_name=athlete.lastname, first_name=athlete.firstname, id=athlete.id,
+            #                       refresh_token=refresh_token, access_token=access_token,
+            #                       access_token_expiry=expires_at)
+            m = Member.add(athlete, refresh_token, access_token, expires_at)
 
 
             flash('You were successfully connected.  Welcome {}!'.format(athlete.firstname))
@@ -103,5 +101,4 @@ def connect():
 
 
 if __name__ == '__main__':
-    db.create_tables([Member, Segment, Attempt])
     app.run(debug=True)
