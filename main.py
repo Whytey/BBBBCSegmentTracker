@@ -1,11 +1,47 @@
-from flask import Flask, request, render_template, redirect, url_for, flash
+from flask import Flask, request, render_template, redirect, url_for, flash, jsonify
 from stravalib import Client
+from flask_restful import Api, Resource, fields, marshal
 
 import config
 from model import Member, Challenge, Attempt
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'top-secret!'
+
+api = Api(app)
+
+MEMBERS_ENDPOINT = 'members'
+MEMBER_ENDPOINT = 'member'
+member_fields = {
+    'id': fields.String,
+    'first_name': fields.String,
+    'last_name': fields.String,
+    'uri': fields.Url(MEMBER_ENDPOINT)
+}
+
+
+class MemberListAPI(Resource):
+    def get(self):
+        members = Member.objects.all()
+
+        json = []
+        for m in members:
+            m_json = m.jsonify()
+            m_json["uri"] = "test"
+            json.append(m_json)
+
+        return {"members": marshal(json, member_fields)}
+
+
+class MemberAPI(Resource):
+    def get (self, id):
+        member = Member.objects.get(id=id)
+
+        return {"member": marshal(member.jsonify(), member_fields)}
+
+
+api.add_resource(MemberListAPI, '/api/v1.0/members', endpoint=MEMBERS_ENDPOINT)
+api.add_resource(MemberAPI, '/api/v1.0/members/<int:id>', endpoint=MEMBER_ENDPOINT)
 
 
 # db_wrapper = FlaskDB(app, db)
@@ -19,14 +55,14 @@ def index():
     return redirect(url_for('index'))
 
 
-@app.route('/members', methods=['GET', 'POST'])
-def members():
+@app.route('/m', methods=['GET', 'POST'])
+def m():
     if request.method == 'GET':
         members = Member.objects.all()
 
         return render_template('members.html', members=members)
 
-    return redirect(url_for('members'))
+    return redirect(url_for('m'))
 
 
 @app.route('/challenges', methods=['GET', 'POST'])

@@ -22,6 +22,9 @@ class BaseModel(models.Model):
     def add(self):
         pass
 
+    @abstractmethod
+    def jsonify(self):
+        pass
 
 class Member(BaseModel):
     last_name = models.TextField()
@@ -44,6 +47,9 @@ class Member(BaseModel):
 
     def update_handicap(self, new_handicap):
         Handicap.add(self, new_handicap)
+
+    def jsonify(self):
+        return {"id": self.id, "first_name": self.first_name, "last_name": self.last_name}
 
 
 class Handicap(BaseModel):

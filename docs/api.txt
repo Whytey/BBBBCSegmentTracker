@@ -1,0 +1,13 @@
+GET    /members
+GET    /members/<member_id>
+POST   /members/                              (??? Not sure we want this)
+
+
+GET    /challenges
+GET    /challenges/<challenge_id>
+POST   /challenges
+
+GET    /activity
+
+GET    /jobs
+GET    /jobs/<job_id>
