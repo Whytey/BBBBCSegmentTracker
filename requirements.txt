@@ -4,3 +4,4 @@ stravalib==0.10.2
 google-cloud-firestore==1.4.0
 matchbox-orm==0.2
 flask_restful==0.3.7
+flask-cors

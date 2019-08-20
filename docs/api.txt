@@ -1,11 +1,17 @@
 GET    /members
 GET    /members/<member_id>
+GET    /members/<member_id>/avatar
+POST   /members/<member_id>/disconnect
+POST   /members/<member_id>/delete
 POST   /members/                              (??? Not sure we want this)
 
 
 GET    /challenges
 GET    /challenges/<challenge_id>
 POST   /challenges
+
+GET    /attempts
+PUT    /attempts/sync/?member_id&segment_id
 
 GET    /activity
 
