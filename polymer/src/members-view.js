@@ -1,22 +1,10 @@
-/**
- * @license
- * Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
- * This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
- * The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
- * The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
- * Code distributed by Google as part of the polymer project is also
- * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
- */
-
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import '@polymer/iron-ajax/iron-ajax.js';
-import './shared-styles.js';
 import '@polymer/iron-icons/iron-icons.js';
-import '@vaadin/vaadin-grid/vaadin-grid.js'
 import '@polymer/paper-icon-button/paper-icon-button.js';
-import '@polymer/paper-fab/paper-fab.js';
-
-
+import { html, PolymerElement } from '@polymer/polymer/polymer-element.js';
+import '@vaadin/vaadin-grid/vaadin-grid.js';
+import './shared-styles.js';
+import './my-config.js';
 
 class MembersView extends PolymerElement {
   static get template() {
@@ -27,18 +15,14 @@ class MembersView extends PolymerElement {
 
           padding: 10px;
         }
-
-    paper-fab {
-        position: fixed;
-        right: 25px;
-        bottom: 30px;
-    }
       </style>
+      
+      <my-config config="{{config}}"></my-config>
 
       <iron-ajax
         id="getMembersAjax"
         auto
-        url="http://127.0.0.1:5000/api/v1.0/members"
+        url="[[config.api]]/v1.0/members"
         method="get"
         handle-as="json"
         last-response="{{members}}">
@@ -60,7 +44,7 @@ class MembersView extends PolymerElement {
           </vaadin-grid-column>
           <vaadin-grid-column flex-grow="0" >
             <!-- Strava link -->
-            <template><a href="https://www.strava.com/athletes/[[item.id]]" target="blank"><paper-icon-button icon="open-in-browser" title="show in strava"></paper-icon-button></a></template>
+            <template><a href="https://www.strava.com/athletes/[[item.id]]" target="blank"><paper-icon-button icon="open-in-new" title="view in strava"></paper-icon-button></a></template>
           </vaadin-grid-column>
           <vaadin-grid-column flex-grow="0" >
             <!-- Resync Activities -->
@@ -71,12 +55,23 @@ class MembersView extends PolymerElement {
             <template><paper-icon-button icon="delete" title="delete" disabled></paper-icon-button></template>
           </vaadin-grid-column>
         </vaadin-grid>
-
-        <paper-fab icon="add"></paper-fab>
-
       </div>
     `;
   }
+
+  // value(event) {
+  //   console.log(event);
+  //   console.log(this.$.appconfig);
+  //   console.log(this.$.appconfig.api);
+  // }
+
+  // __getURL() {
+  //   var config = this.$.appconfig.byKey('config');
+  //   console.log("Config: " + config);
+  //   var json = JSON.parse(config);
+  //   console.log("Config: " + json.api);
+  //   return json.api + "/v1.0/members";
+  // }
 
 }
 

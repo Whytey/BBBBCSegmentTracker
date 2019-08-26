@@ -1,7 +1,9 @@
-from flask import Flask
-from flask_restful import Api, Resource, fields, marshal
+from flask import Flask, request
 from flask_cors import CORS
+from flask_restful import Api, Resource, fields, marshal, reqparse
+from stravalib import Client
 
+import config
 from model import Member, Challenge
 
 app = Flask(__name__)
@@ -17,6 +19,47 @@ member_fields = {
     'last_name': fields.String,
     'uri': fields.Url(MEMBER_ENDPOINT)
 }
+
+CONNECT_ENDPOINT = 'connect'
+
+
+class ConnectAPI(Resource):
+    def __init__(self):
+        self.get_parser = reqparse.RequestParser()
+        self.get_parser.add_argument('redirect_url', type = str, required = True,
+                                     help = 'No redirect URL provided', location = 'args')
+
+        self.post_parser = reqparse.RequestParser()
+        self.post_parser.add_argument('code', type = str, required = True,
+                                      help = 'No authentication code provided {error_msg}', location = 'json')
+        super(ConnectAPI, self).__init__()
+
+    def get(self):
+        args = self.get_parser.parse_args()
+        redirect_url = args.get("redirect_url")
+        client = Client()
+        authorize_url = client.authorization_url(config.strava_client_id, redirect_url, state="response")
+        return {"url": authorize_url}
+
+    def post(self):
+        args = self.post_parser.parse_args()
+        code = args.get("code")
+        client = Client()
+        token_response = client.exchange_code_for_token(client_id=config.strava_client_id,
+                                                        client_secret=config.strava_client_secret,
+                                                        code=code)
+        access_token = token_response['access_token']
+        refresh_token = token_response['refresh_token']
+        expires_at = token_response['expires_at']
+
+        client.access_token = access_token
+        client.refresh_token = refresh_token
+        client.token_expires_at = expires_at
+
+        athlete = client.get_athlete()
+
+        member = Member.add(athlete, refresh_token, access_token, expires_at)
+        return {"member": marshal(member.jsonify(), member_fields)}
 
 
 class MemberListAPI(Resource):
@@ -50,10 +93,11 @@ class ChallengeListAPI(Resource):
 
 api.add_resource(MemberListAPI, '/api/v1.0/members', endpoint=MEMBERS_ENDPOINT)
 api.add_resource(MemberAPI, '/api/v1.0/members/<int:id>', endpoint=MEMBER_ENDPOINT)
+api.add_resource(ConnectAPI, '/api/v1.0/connect', endpoint=CONNECT_ENDPOINT)
 
 
 @app.route("/")
-def hello():
+def index():
     return app.send_static_file('index.html')
 
 

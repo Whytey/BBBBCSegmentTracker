@@ -8,20 +8,23 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import { setPassiveTouchGestures, setRootPath } from '@polymer/polymer/lib/utils/settings.js';
-import '@polymer/app-layout/app-drawer/app-drawer.js';
 import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js';
-import '@polymer/app-layout/app-header/app-header.js';
+import '@polymer/app-layout/app-drawer/app-drawer.js';
 import '@polymer/app-layout/app-header-layout/app-header-layout.js';
+import '@polymer/app-layout/app-header/app-header.js';
 import '@polymer/app-layout/app-scroll-effects/app-scroll-effects.js';
 import '@polymer/app-layout/app-toolbar/app-toolbar.js';
 import '@polymer/app-route/app-location.js';
 import '@polymer/app-route/app-route.js';
+import '@polymer/iron-image/iron-image.js';
 import '@polymer/iron-pages/iron-pages.js';
 import '@polymer/iron-selector/iron-selector.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
+import { setPassiveTouchGestures, setRootPath } from '@polymer/polymer/lib/utils/settings.js';
+import { html, PolymerElement } from '@polymer/polymer/polymer-element.js';
+import './connect-button.js';
 import './my-icons.js';
+import './my-config.js';
 
 // Gesture events like tap and track generated from touch will not be
 // preventable, allowing for better scrolling performance.
@@ -71,6 +74,12 @@ class BBBBCSegmentTracker extends PolymerElement {
           color: black;
           font-weight: bold;
         }
+
+        .stravalogo {
+          display: block;
+          position: fixed;
+          bottom: 140px;
+        }
       </style>
 
       <app-location route="{{route}}" url-space-regex="^[[rootPath]]">
@@ -78,6 +87,8 @@ class BBBBCSegmentTracker extends PolymerElement {
 
       <app-route route="{{route}}" pattern="[[rootPath]]:page" data="{{routeData}}" tail="{{subroute}}">
       </app-route>
+
+      <my-config></my-config>
 
       <app-drawer-layout fullbleed="" narrow="{{narrow}}">
         <!-- Drawer content -->
@@ -88,6 +99,7 @@ class BBBBCSegmentTracker extends PolymerElement {
             <a name="members-view" href="[[rootPath]]members-view">Members</a>
             <a name="challenges-view" href="[[rootPath]]challenges-view">Challenges</a>
           </iron-selector>
+          <iron-image class="stravalogo" src="/images/api_logo_pwrdBy_strava_stack_light.png"></iron-image>
         </app-drawer>
 
         <!-- Main content -->
@@ -97,6 +109,7 @@ class BBBBCSegmentTracker extends PolymerElement {
             <app-toolbar>
               <paper-icon-button icon="my-icons:menu" drawer-toggle=""></paper-icon-button>
               <div main-title="">BBBBC Segment Tracker</div>
+              <connect-button></connect-button>
             </app-toolbar>
           </app-header>
 
@@ -104,6 +117,7 @@ class BBBBCSegmentTracker extends PolymerElement {
             <home-view name="home-view"></home-view>
             <members-view name="members-view"></members-view>
             <challenges-view name="challenges-view"></challenges-view>
+            <connect-view name="connect-view"></connect-view>
             <my-view404 name="view404"></my-view404>
           </iron-pages>
         </app-header-layout>
@@ -136,7 +150,7 @@ class BBBBCSegmentTracker extends PolymerElement {
      // Show 'view1' in that case. And if the page doesn't exist, show 'view404'.
     if (!page) {
       this.page = 'home-view';
-    } else if (['home-view', 'members-view', 'challenges-view'].indexOf(page) !== -1) {
+    } else if (['home-view', 'members-view', 'challenges-view', 'connect-view'].indexOf(page) !== -1) {
       this.page = page;
     } else {
       this.page = 'view404';
@@ -162,6 +176,9 @@ class BBBBCSegmentTracker extends PolymerElement {
         break;
       case 'challenges-view':
         import('./challenges-view.js');
+        break;
+      case 'connect-view':
+        import('./connect-view.js');
         break;
       case 'view404':
         import('./my-view404.js');
