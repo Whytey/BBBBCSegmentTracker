@@ -26,6 +26,7 @@ class BaseModel(models.Model):
     def jsonify(self):
         pass
 
+
 class Member(BaseModel):
     last_name = models.TextField()
     first_name = models.TextField()
@@ -85,6 +86,11 @@ class Challenge(BaseModel):
         Activity.add("{} has been added as a new challenge.".format(Activity.MEMBER_ID), challenge_id=c.id)
 
         return c
+
+
+    def jsonify(self):
+        return {"id": self.id, "date_from": self.date_from, "date_to": self.date_to, "segment_id": self.segment_id,
+                "segment_name": self.segment_name}
 
 
 class Attempt(BaseModel):

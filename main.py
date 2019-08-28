@@ -22,6 +22,17 @@ member_fields = {
 
 CONNECT_ENDPOINT = 'connect'
 
+CHALLENGES_ENDPOINT = 'challenges'
+CHALLENGE_ENDPOINT = 'challenge'
+challenge_fields = {
+    'id': fields.String,
+    'date_from': fields.DateTime(dt_format='iso8601'),
+    'date_to': fields.DateTime(dt_format='iso8601'),
+    'segment_id': fields.Integer,
+    'segment_name': fields.String,
+    'uri': fields.Url(CHALLENGE_ENDPOINT)
+}
+
 
 class ConnectAPI(Resource):
     def __init__(self):
@@ -88,12 +99,20 @@ class ChallengeListAPI(Resource):
         for c in challenges:
             json.append(c.jsonify())
 
-        return {"challenges": marshal(json, member_fields)}
+        return {"challenges": marshal(json, challenge_fields)}
+
+class ChallengeAPI(Resource):
+    def get(self, id):
+        challenge = Challenge.objects.get(id=id)
+
+        return {"challenge": marshal(challenge.jsonify(), challenge_fields)}
 
 
 api.add_resource(MemberListAPI, '/api/v1.0/members', endpoint=MEMBERS_ENDPOINT)
 api.add_resource(MemberAPI, '/api/v1.0/members/<int:id>', endpoint=MEMBER_ENDPOINT)
 api.add_resource(ConnectAPI, '/api/v1.0/connect', endpoint=CONNECT_ENDPOINT)
+api.add_resource(ChallengeListAPI, '/api/v1.0/challenges', endpoint=CHALLENGES_ENDPOINT)
+api.add_resource(ChallengeAPI, '/api/v1.0/challenges/<string:id>', endpoint=CHALLENGE_ENDPOINT)
 
 
 @app.route("/")
