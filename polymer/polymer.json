@@ -2,13 +2,15 @@
   "entrypoint": "index.html",
   "shell": "src/bbbbc-segment-tracker.js",
   "sources": [
-    "images/**/*"
+    "images/**/*",
+    "src/**/*"
   ],
   "extraDependencies": [
     "manifest.json",
     "node_modules/@webcomponents/webcomponentsjs/*.js",
     "!node_modules/@webcomponents/webcomponentsjs/gulpfile.js",
-    "node_modules/@webcomponents/webcomponentsjs/bundles/*.js"
+    "node_modules/@webcomponents/webcomponentsjs/bundles/*.js",
+    "appconfig.json"
   ],
   "builds": [
     {

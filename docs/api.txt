@@ -16,7 +16,7 @@ PUT    /attempts/sync/?member_id&segment_id
 GET    /activity
 
 GET    /connect?redirect_url                    (returns the URL for the button)
-POST   /connect                                 (provides the aut response --> redirects to members-view)
+POST   /connect?code                            (provides the aut response --> redirects to members-view)
 
 GET    /jobs
 GET    /jobs/<job_id>
