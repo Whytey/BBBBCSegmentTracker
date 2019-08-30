@@ -9,6 +9,7 @@
  */
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+import '@polymer/paper-card/paper-card.js';
 import './shared-styles.js';
 
 class HomeView extends PolymerElement {
@@ -20,14 +21,38 @@ class HomeView extends PolymerElement {
 
           padding: 10px;
         }
+
+        paper-card {
+          width: 400px;
+        }
       </style>
 
-      <div class="card">
-        <div class="circle">1</div>
-        <h1>View One</h1>
-        <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
-        <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
-      </div>
+      <paper-card heading="Current Challenge">
+        <div class="card-content">
+          Map of current challenge and top three contenders.
+        </div>
+      </paper-card>
+      <paper-card heading="Top 5 Members">
+        <div class="card-content">
+          List the top five, based on current handicap.
+        </div>
+      </paper-card>
+      <paper-card heading="Weather">
+        <div class="card-content">
+          Today's weather.
+        </div>
+      </paper-card>
+      <paper-card heading="Club Info">
+        <div class="card-content">
+          Stats from the Club page on Strava.
+        </div>
+      </paper-card>
+      <paper-card heading="Activity Stream">
+        <div class="card-content">
+          What's been going on with the challenges, who has attempted, etc.
+        </div>
+      </paper-card>
+
     `;
   }
 }
