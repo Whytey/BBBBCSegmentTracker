@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["index.html","7d991c79c42da0ac90b127e5321ab523"],["manifest.json","cc907d757c978bf973337cf6371baf94"],["src/bbbbc-segment-tracker.js","06e1a2f45e3c4e365ba58714bd3fc57c"],["src/challenges-view.js","3d832786ba48323726ad71a805ccecc1"],["src/connect-view.js","d88adb16366cdbb49c1ba312a06be8c2"],["src/home-view.js","6db90b3d59547a705aa8ebe2d00fb48a"],["src/members-view.js","6e871b797c8f61ea3c1401a99615be3e"],["src/my-view404.js","84e9e8f439a2dc0a7c4f569dbd0bdc88"]];
+var precacheConfig = [["index.html","7d991c79c42da0ac90b127e5321ab523"],["manifest.json","cc907d757c978bf973337cf6371baf94"],["src/bbbbc-segment-tracker.js","3457b623871079f0d5f0f42de2fa8768"],["src/challenges-view.js","4a36d597ae957201028217dc275bcc6f"],["src/connect-view.js","d88adb16366cdbb49c1ba312a06be8c2"],["src/home-view.js","6db90b3d59547a705aa8ebe2d00fb48a"],["src/members-view.js","0bad7192abce868f5c5ab07b1782c189"],["src/my-view404.js","84e9e8f439a2dc0a7c4f569dbd0bdc88"]];
 var cacheName = 'sw-precache-v3--' + (self.registration ? self.registration.scope : '');
 
 

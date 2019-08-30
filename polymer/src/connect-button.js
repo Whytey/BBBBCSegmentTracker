@@ -31,6 +31,8 @@ class ConnectButton extends PolymerElement {
   }
 
   __getRedirectURL() {
+    // Simple function to create the redirect URL correctly.  
+    // Uses the URL object rather than string manipulation.
     var url = new URL(document.location);
     url.pathname = "connect-view";
 

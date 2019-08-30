@@ -4,6 +4,7 @@ from flask_restful import Api, Resource, fields, marshal, reqparse
 from stravalib import Client
 
 import config
+from strava import Strava
 from model import Member, Challenge
 
 app = Flask(__name__)
@@ -55,22 +56,15 @@ class ConnectAPI(Resource):
     def post(self):
         args = self.post_parser.parse_args()
         code = args.get("code")
-        client = Client()
-        token_response = client.exchange_code_for_token(client_id=config.strava_client_id,
-                                                        client_secret=config.strava_client_secret,
-                                                        code=code)
-        access_token = token_response['access_token']
-        refresh_token = token_response['refresh_token']
-        expires_at = token_response['expires_at']
 
-        client.access_token = access_token
-        client.refresh_token = refresh_token
-        client.token_expires_at = expires_at
-
-        athlete = client.get_athlete()
+        strava = Strava()
+        athlete, access_token, refresh_token, expires_at = strava.register_new_member(code)
 
         member = Member.add(athlete, refresh_token, access_token, expires_at)
         return {"member": marshal(member.jsonify(), member_fields)}
+
+
+api.add_resource(ConnectAPI, '/api/v1.0/connect', endpoint=CONNECT_ENDPOINT)
 
 
 class MemberListAPI(Resource):
@@ -84,11 +78,28 @@ class MemberListAPI(Resource):
         return {"members": marshal(json, member_fields)}
 
 
+api.add_resource(MemberListAPI, '/api/v1.0/members', endpoint=MEMBERS_ENDPOINT)
+
+
 class MemberAPI(Resource):
     def get(self, id):
         member = Member.objects.get(id=id)
 
         return {"member": marshal(member.jsonify(), member_fields)}
+
+
+api.add_resource(MemberAPI, '/api/v1.0/members/<int:id>', endpoint=MEMBER_ENDPOINT)
+
+
+class MemberAvatarAPI(Resource):
+    def get(self, id):
+        strava = Strava()
+        url = strava.get_member_avatar(id)
+
+        return {"avatar": {"url": url}}
+
+
+api.add_resource(MemberAvatarAPI, '/api/v1.0/members/<int:id>/avatar')
 
 
 class ChallengeListAPI(Resource):
@@ -101,6 +112,10 @@ class ChallengeListAPI(Resource):
 
         return {"challenges": marshal(json, challenge_fields)}
 
+
+api.add_resource(ChallengeListAPI, '/api/v1.0/challenges', endpoint=CHALLENGES_ENDPOINT)
+
+
 class ChallengeAPI(Resource):
     def get(self, id):
         challenge = Challenge.objects.get(id=id)
@@ -108,10 +123,6 @@ class ChallengeAPI(Resource):
         return {"challenge": marshal(challenge.jsonify(), challenge_fields)}
 
 
-api.add_resource(MemberListAPI, '/api/v1.0/members', endpoint=MEMBERS_ENDPOINT)
-api.add_resource(MemberAPI, '/api/v1.0/members/<int:id>', endpoint=MEMBER_ENDPOINT)
-api.add_resource(ConnectAPI, '/api/v1.0/connect', endpoint=CONNECT_ENDPOINT)
-api.add_resource(ChallengeListAPI, '/api/v1.0/challenges', endpoint=CHALLENGES_ENDPOINT)
 api.add_resource(ChallengeAPI, '/api/v1.0/challenges/<string:id>', endpoint=CHALLENGE_ENDPOINT)
 
 

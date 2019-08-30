@@ -1,6 +1,6 @@
 GET    /members
 GET    /members/<member_id>
-GET    /members/<member_id>/avatar            (Returns a jpeg image)
+GET    /members/<member_id>/avatar?size       (Returns a url for image)
 POST   /members/<member_id>/disconnect
 POST   /members/<member_id>/delete
 POST   /members/                              (??? Not sure we want this)
