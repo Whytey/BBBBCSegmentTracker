@@ -1,15 +1,10 @@
-/**
- * @license
- * Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
- * This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
- * The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
- * The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
- * Code distributed by Google as part of the polymer project is also
- * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
- */
-
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+import '@polymer/iron-ajax/iron-ajax.js';
+import '@polymer/iron-icons/iron-icons.js';
+import '@polymer/paper-icon-button/paper-icon-button.js';
+import { html, PolymerElement } from '@polymer/polymer/polymer-element.js';
+import '@vaadin/vaadin-grid/vaadin-grid.js';
 import './shared-styles.js';
+import './my-config.js';
 
 class ChallengesView extends PolymerElement {
   static get template() {
@@ -21,12 +16,38 @@ class ChallengesView extends PolymerElement {
           padding: 10px;
         }
       </style>
+      
+      <my-config config="{{config}}"></my-config>
+
+      <iron-ajax
+        id="getMembersAjax"
+        auto
+        url="[[config.api]]/v1.0/challenges"
+        method="get"
+        handle-as="json"
+        last-response="{{challenges}}">
+      </iron-ajax>
 
       <div class="card">
-        <div class="circle">3</div>
-        <h1>View Three</h1>
-        <p>Modus commodo minimum eum te, vero utinam assueverit per eu.</p>
-        <p>Ea duis bonorum nec, falli paulo aliquid ei eum.Has at minim mucius aliquam, est id tempor laoreet.Pro saepe pertinax ei, ad pri animal labores suscipiantur.</p>
+        <h1>Challenges</h1>
+        <vaadin-grid theme="no-border" aria-label="Challenges Table" items="[[challenges.challenges]]">
+          <vaadin-grid-column>
+            <template class="header">Name</template>
+            <template>[[item.segment_name]]</template>
+          </vaadin-grid-column>
+          <vaadin-grid-column>
+            <template class="header">Start Date</template>
+            <template>[[item.date_from]]</template>
+          </vaadin-grid-column>
+          <vaadin-grid-column>
+            <template class="header">End Date</template>
+            <template>[[item.date_to]]</template>
+          </vaadin-grid-column>
+          <vaadin-grid-column flex-grow="0" >
+            <!-- Strava link -->
+            <template><a href="https://www.strava.com/segments/[[item.segment_id]]" target="blank"><paper-icon-button icon="open-in-new" title="view in strava"></paper-icon-button></a></template>
+          </vaadin-grid-column>
+        </vaadin-grid>
       </div>
     `;
   }

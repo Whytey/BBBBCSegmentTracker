@@ -3,3 +3,4 @@ node_modules/
 /venv/
 /resources/bbbbc-firestore.json
 /config.py
+/polymer/workspace.code-workspace

@@ -30,7 +30,7 @@ class MembersView extends PolymerElement {
 
       <div class="card">
         <h1>Members</h1>
-        <vaadin-grid theme="no-border" aria-label="Member Table" items="[[members.members]]">
+        <vaadin-grid theme="no-border" aria-label="Members Table" items="[[members.members]]">
           <vaadin-grid-column width="60px" flex-grow="0" text-align="center">
             <template><iron-image style="width:50px; height:50px; background-color: blue; display: block; " width="30" height="30" sizing="cover" preload fade src="https://dgalywyr863hv.cloudfront.net/pictures/athletes/308150/139501/1/medium.jpg"></iron-image></template>
           </vaadin-grid-column>
