@@ -87,6 +87,8 @@ class BBBBCSegmentTracker extends PolymerElement {
 
       <app-route route="{{route}}" pattern="[[rootPath]]:page" data="{{routeData}}" tail="{{subroute}}">
       </app-route>
+      <app-route route="{{subroute}}" pattern="/:id" data="{{subrouteData}}">
+      </app-route>
 
       <my-config></my-config>
 
@@ -118,6 +120,7 @@ class BBBBCSegmentTracker extends PolymerElement {
             <members-view name="members-view"></members-view>
             <challenges-view name="challenges-view"></challenges-view>
             <connect-view name="connect-view"></connect-view>
+            <challenge-attempts-view name="challenge-attempts-view" challenge="{{subrouteData}}"></challenge-attempts-view>
             <my-view404 name="view404"></my-view404>
           </iron-pages>
         </app-header-layout>
@@ -150,7 +153,7 @@ class BBBBCSegmentTracker extends PolymerElement {
      // Show 'view1' in that case. And if the page doesn't exist, show 'view404'.
     if (!page) {
       this.page = 'home-view';
-    } else if (['home-view', 'members-view', 'challenges-view', 'connect-view'].indexOf(page) !== -1) {
+    } else if (['home-view', 'members-view', 'challenges-view', 'connect-view', 'challenge-attempts-view'].indexOf(page) !== -1) {
       this.page = page;
     } else {
       this.page = 'view404';
@@ -179,6 +182,9 @@ class BBBBCSegmentTracker extends PolymerElement {
         break;
       case 'connect-view':
         import('./connect-view.js');
+        break;
+      case 'challenge-attempts-view':
+        import('./challenge-attempts-view.js');
         break;
       case 'view404':
         import('./my-view404.js');

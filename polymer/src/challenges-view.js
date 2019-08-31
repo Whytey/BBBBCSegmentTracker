@@ -42,7 +42,11 @@ class ChallengesView extends PolymerElement {
         <vaadin-grid theme="no-border" aria-label="Challenges Table" items="[[challenges.challenges]]">
           <vaadin-grid-column>
             <template class="header">Name</template>
-            <template>[[item.segment_name]]</template>
+            <template>
+              <a href="challenge-attempts-view/[[item.id]]">
+                [[item.segment_name]]
+              </a>
+            </template>
           </vaadin-grid-column>
           <vaadin-grid-column>
             <template class="header">Start Date</template>
