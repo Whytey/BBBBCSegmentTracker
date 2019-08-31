@@ -7,7 +7,6 @@ from stravalib import Client
 import config
 from model import Member
 
-logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 

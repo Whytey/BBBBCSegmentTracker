@@ -42,7 +42,7 @@ class Member(BaseModel):
                                   access_token_expiry=access_token_expiry, audit_inserted=datetime.utcnow())
         m.save()
         Handicap.add(m)
-        Activity.add("{} has linked their account.".format(Activity.MEMBER_ID), member_id=m.id)
+        Activity.add(Activity.MEMBER_CONNECTED, member_id=m.id)
 
         return m
 
@@ -83,10 +83,9 @@ class Challenge(BaseModel):
         c = Challenge.objects.create(segment_id=segment.id, segment_name=segment.name, date_from=date_from,
                                      date_to=date_to, audit_inserted=datetime.utcnow())
         c.save()
-        Activity.add("{} has been added as a new challenge.".format(Activity.MEMBER_ID), challenge_id=c.id)
+        Activity.add(Activity.CHALLENGE_ADDED, challenge_id=c.id)
 
         return c
-
 
     def jsonify(self):
         return {"id": self.id, "date_from": self.date_from, "date_to": self.date_to, "segment_id": self.segment_id,
@@ -107,10 +106,15 @@ class Attempt(BaseModel):
                                    activity_timestamp=effort.start_date_local, activity_id=effort.activity.id,
                                    audit_inserted=datetime.utcnow())
         a.save
-        Activity.add("{} has attempted {} - {}".format(Activity.MEMBER_ID, Activity.CHALLENGE_ID, Activity.ATTEMPT_ID),
+        Activity.add(Activity.CHALLENGE_ATTEMPTED,
                      member_id=member.id, challenge_id=challenge.id, attempt_id=a.id)
 
         return a
+
+    def jsonify(self):
+        return {"id": self.id, "member": self.member, "challenge": self.challenge,
+                "recorded_time_secs": self.recorded_time_secs, "activity_timestamp": self.activity_timestamp,
+                "activity_id": self.activity_id}
 
 
 class Activity(BaseModel):
@@ -119,9 +123,9 @@ class Activity(BaseModel):
     challenge_id = models.TextField(blank=True)
     attempt_id = models.TextField(blank=True)
 
-    MEMBER_ID = "%m%"
-    CHALLENGE_ID = "%c%"
-    ATTEMPT_ID = "%a%"
+    MEMBER_CONNECTED = "MEMBER_CONNECTED"
+    CHALLENGE_ADDED = "CHALLENGE_ADDED"
+    CHALLENGE_ATTEMPTED = "CHALLENGE_ATTEMPTED"
 
     @staticmethod
     def add(message, member_id=None, challenge_id=None, attempt_id=None):
