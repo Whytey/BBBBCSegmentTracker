@@ -35,6 +35,10 @@ class HomeView extends PolymerElement {
       <paper-card heading="Top 5 Members">
         <div class="card-content">
           List the top five, based on current handicap.
+
+          <p>1. Whytey</p>
+          <p>2. Someone not Whytey</p>
+          <p>3. Etc.</p>
         </div>
       </paper-card>
       <paper-card heading="Weather">

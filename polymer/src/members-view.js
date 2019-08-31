@@ -1,11 +1,12 @@
 import '@polymer/iron-ajax/iron-ajax.js';
 import '@polymer/iron-icons/iron-icons.js';
+import '@polymer/paper-fab/paper-fab.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
 import { html, PolymerElement } from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-grid/vaadin-grid.js';
-import './shared-styles.js';
+import './member-avatar.js';
 import './my-config.js';
-import './member-avatar.js'
+import './shared-styles.js';
 
 class MembersView extends PolymerElement {
   static get template() {
@@ -16,6 +17,13 @@ class MembersView extends PolymerElement {
 
           padding: 10px;
         }
+
+        paper-fab {
+          position: fixed;
+          right: 25px;
+          bottom: 30px;
+        }
+
       </style>
       
       <my-config config="{{config}}"></my-config>
@@ -56,23 +64,12 @@ class MembersView extends PolymerElement {
             <template><paper-icon-button icon="delete" title="delete" disabled></paper-icon-button></template>
           </vaadin-grid-column>
         </vaadin-grid>
+
+        <paper-fab icon="refresh" disabled></paper-fab>
+
       </div>
     `;
   }
-
-  // value(event) {
-  //   console.log(event);
-  //   console.log(this.$.appconfig);
-  //   console.log(this.$.appconfig.api);
-  // }
-
-  // __getURL() {
-  //   var config = this.$.appconfig.byKey('config');
-  //   console.log("Config: " + config);
-  //   var json = JSON.parse(config);
-  //   console.log("Config: " + json.api);
-  //   return json.api + "/v1.0/members";
-  // }
 
 }
 
