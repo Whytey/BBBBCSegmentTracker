@@ -1,11 +1,16 @@
-from flask import Flask, request
+import logging
+import sys
+
+from flask import Flask
 from flask_cors import CORS
 from flask_restful import Api, Resource, fields, marshal, reqparse
 from stravalib import Client
 
 import config
+from model import Member, Challenge, Attempt
 from strava import Strava
-from model import Member, Challenge
+
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'top-secret!'
@@ -34,16 +39,32 @@ challenge_fields = {
     'uri': fields.Url(CHALLENGE_ENDPOINT)
 }
 
+attempt_fields = {
+    'id': fields.String,
+    # 'member': fields.Nested(member_fields),
+    # 'challenge': fields.Nested(challenge_fields),
+    'member_id': fields.String,
+    'challenge_id': fields.String,
+    'recorded_time_secs': fields.Integer,
+    'activity_timestamp': fields.DateTime(dt_format='iso8601'),
+    'activity_id': fields.Integer
+}
+
+
+# return {"id": self.id, "member": self.member.jsonify(), "challenge": self.challenge.jsonify(),
+#         "recorded_time_secs": self.recorded_time_secs, "activity_timestamp": self.activity_timestamp,
+#         "activity_id": self.activity_id}
+
 
 class ConnectAPI(Resource):
     def __init__(self):
         self.get_parser = reqparse.RequestParser()
-        self.get_parser.add_argument('redirect_url', type = str, required = True,
-                                     help = 'No redirect URL provided', location = 'args')
+        self.get_parser.add_argument('redirect_url', type=str, required=True,
+                                     help='No redirect URL provided', location='args')
 
         self.post_parser = reqparse.RequestParser()
-        self.post_parser.add_argument('code', type = str, required = True,
-                                      help = 'No authentication code provided {error_msg}', location = 'json')
+        self.post_parser.add_argument('code', type=str, required=True,
+                                      help='No authentication code provided {error_msg}', location='json')
         super(ConnectAPI, self).__init__()
 
     def get(self):
@@ -124,6 +145,23 @@ class ChallengeAPI(Resource):
 
 
 api.add_resource(ChallengeAPI, '/api/v1.0/challenges/<string:id>', endpoint=CHALLENGE_ENDPOINT)
+
+
+class AttemptsAPI(Resource):
+    def get(self, challenge_id):
+        challenge = Challenge.objects.get(id=challenge_id)
+
+        attempts = Attempt.objects.filter(challenge=challenge)
+
+        json = []
+        for a in attempts:
+            json.append(a.jsonify())
+
+        return {"challenge": marshal(challenge, challenge_fields),
+                "attempts": marshal(json, attempt_fields)}
+
+
+api.add_resource(AttemptsAPI, '/api/v1.0/attempts/<string:challenge_id>')
 
 
 @app.route("/")

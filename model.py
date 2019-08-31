@@ -112,7 +112,7 @@ class Attempt(BaseModel):
         return a
 
     def jsonify(self):
-        return {"id": self.id, "member": self.member, "challenge": self.challenge,
+        return {"id": self.id, "member_id": self.member.id, "challenge_id": self.challenge.id,
                 "recorded_time_secs": self.recorded_time_secs, "activity_timestamp": self.activity_timestamp,
                 "activity_id": self.activity_id}
 
