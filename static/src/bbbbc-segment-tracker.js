@@ -6,7 +6,7 @@ The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
-*/'use strict';Object.defineProperty(_exports,"__esModule",{value:!0});_exports.$documentWaitDefault=documentWait;_exports.addListener=addListener;_exports.afterNextRender=afterNextRender;_exports.applyCss=applyCss;_exports.applyStyle=applyStyle;_exports.applyStylePlaceHolder=applyStylePlaceHolder;_exports.beforeNextRender=beforeNextRender;_exports.calculateSplices=calculateSplices;_exports.camelToDashCase=camelToDashCase;_exports.createScopeStyle=createScopeStyle;_exports.cssFromModule=cssFromModule;_exports.cssFromModuleImports=cssFromModuleImports;_exports.cssFromModules=cssFromModules;_exports.cssFromTemplate=cssFromTemplate;_exports.dashToCamelCase=dashToCamelCase;_exports.deepTargetFind=deepTargetFind;_exports.detectMixin=detectMixin;_exports.dumpRegistrations=dumpRegistrations;_exports.elementHasBuiltCss=elementHasBuiltCss;_exports.elementsAreInvalid=elementsAreInvalid;_exports.findMatchingParen=findMatchingParen;_exports.flush$2=flush;_exports.forEachRule=forEachRule;_exports.gatherStyleText=gatherStyleText;_exports.get=get;_exports.getBuildComment=getBuildComment;_exports.getComputedStyleValue=getComputedStyleValue;_exports.getCssBuild=getCssBuild;_exports.getIsExtends=getIsExtends;_exports.hideElementsGlobally=hideElementsGlobally;_exports.incrementInstanceCount=incrementInstanceCount;_exports.invalidate=invalidate;_exports.invalidateTemplate=invalidateTemplate;_exports.isAncestor=isAncestor;_exports.isDescendant=isDescendant;_exports.isKeyframesSelector=isKeyframesSelector;_exports.isOptimalCssBuild=isOptimalCssBuild;_exports.isPath=isPath;_exports.isTargetedBuild=isTargetedBuild;_exports.isUnscopedStyle=isUnscopedStyle;_exports.isValid=isValid;_exports.isValidating=isValidating;_exports.matches=matches;_exports.mixinBehaviors=mixinBehaviors;_exports.modelForElement=modelForElement;_exports.normalize=normalize;_exports.parse=parse;_exports.pathFromUrl=pathFromUrl;_exports.prevent=prevent;_exports.processUnscopedStyle=processUnscopedStyle;_exports.processVariableAndFallback=processVariableAndFallback;_exports.register=register$1;_exports.register$1=register;_exports.removeCustomPropAssignment=removeCustomPropAssignment;_exports.removeListener=removeListener;_exports.resetMouseCanceller=resetMouseCanceller;_exports.resolveCss=resolveCss;_exports.resolveUrl=resolveUrl;_exports.root=root;_exports.rulesForStyle=rulesForStyle;_exports.scopeSubtree=scopeSubtree;_exports.set=set;_exports.setElementClassRaw=setElementClassRaw;_exports.setTouchAction=setTouchAction;_exports.split=split;_exports.splitSelectorList=splitSelectorList;_exports.startValidating=startValidating;_exports.startValidatingTemplate=startValidatingTemplate;_exports.stringify=stringify;_exports.stylesFromModule=stylesFromModule;_exports.stylesFromModuleImports=stylesFromModuleImports;_exports.stylesFromModules=stylesFromModules;_exports.stylesFromTemplate=stylesFromTemplate;_exports.templateIsValid=templateIsValid;_exports.templateIsValidating=templateIsValidating;_exports.templatize=templatize;_exports.toCssText=toCssText;_exports.translate=translate;_exports.updateNativeProperties=updateNativeProperties;_exports.$wrap=_exports.$version=_exports.$vaadinUsageStatistics=_exports.$vaadinThemePropertyMixin=_exports.$vaadinThemableMixin=_exports.$vaadinGridTemplatizer=_exports.$vaadinGridStylingMixin=_exports.$vaadinGridSortMixin=_exports.$vaadinGridSelectionMixin=_exports.$vaadinGridScroller=_exports.$vaadinGridScrollMixin=_exports.$vaadinGridRowDetailsMixin=_exports.$vaadinGridKeyboardNavigationMixin=_exports.$vaadinGridFilterMixin=_exports.$vaadinGridEventContextMixin=_exports.$vaadinGridDynamicColumnsMixin=_exports.$vaadinGridDragAndDropMixin=_exports.$vaadinGridDataProviderMixin=_exports.$vaadinGridColumnResizingMixin=_exports.$vaadinGridColumnReorderingMixin=_exports.$vaadinGridColumn=_exports.$vaadinGridArrayDataProviderMixin=_exports.$vaadinGridActiveItemMixin=_exports.$vaadinGridA11yMixin=_exports.$vaadinGrid=_exports.$vaadinElementMixin=_exports.$vaadinDevelopmentModeDetector=_exports.$vaadinControlStateMixin=_exports.$vaadinCheckbox=_exports.$unscopedStyleHandler=_exports.$templatizerBehavior=_exports.$templatize=_exports.$templateStamp=_exports.$templateMapDefault=_exports.$templateMap=_exports.$telemetry=_exports.$styleUtil=_exports.$styleSettings=_exports.$styleGather=_exports.$settings=_exports.$scopeSubtree=_exports.$resolveUrl=_exports.$renderStatus=_exports.$propertyEffects=_exports.$propertyAccessors=_exports.$propertiesMixin=_exports.$propertiesChanged=_exports.$polymerLegacy=_exports.$polymerFn=_exports.$polymerElement=_exports.$polymerDom=_exports.$path=_exports.$paperRippleBehavior=_exports.$paperInkyFocusBehavior=_exports.$mutableDataBehavior=_exports.$mutableData=_exports.$mixin=_exports.$legacyElementMixin=_exports.$ironSelection=_exports.$ironSelectable=_exports.$ironScrollTargetBehavior=_exports.$ironResizableBehavior=_exports.$ironMultiSelectable=_exports.$ironMeta=_exports.$ironList=_exports.$ironControlState=_exports.$ironButtonState=_exports.$ironA11yKeysBehavior=_exports.$htmlTag=_exports.$hideTemplateControls=_exports.$helpers=_exports.$gestures=_exports.$gestureEventListeners=_exports.$flush=_exports.$flattenedNodesObserver=_exports.$elementMixin=_exports.$domRepeat=_exports.$domModule=_exports.$domIf=_exports.$domBind=_exports.$documentWait=_exports.$dirMixin=_exports.$debounce=_exports.$customStyleInterfaceDefault=_exports.$customStyleInterface$1=_exports.$customStyle=_exports.$cssParse=_exports.$commonUtils=_exports.$commonRegex=_exports.$class=_exports.$caseMap=_exports.$async=_exports.$arraySplice=_exports.$arraySelector=_exports.$applyShimUtils=_exports.$applyShimDefault=_exports.$applyShim$1=_exports.$appScrollEffectsBehavior=_exports.$appRouteConverterBehavior=_exports.$appLayoutBehavior=void 0;_exports.cssBuild=_exports.cancelSyntheticClickEvents=_exports.animationFrame=_exports.allowTemplateFromDomModule=_exports.enqueueDebouncer$1=_exports.enqueueDebouncer=_exports.addDebouncer=_exports.add=_exports._scrollTimer=_exports._scrollEffects=_exports.VAR_CONSUMED=_exports.VAR_ASSIGN=_exports.ThemePropertyMixin=_exports.ThemableMixin=_exports.Templatizer$1=_exports.Templatizer=_exports.TemplateStamp=_exports.TemplateInstanceBase=_exports.StylingMixin=_exports.StyleNode=_exports.SortMixin=_exports.SelectionMixin=_exports.ScrollerElement=_exports.ScrollMixin=_exports.RowDetailsMixin=_exports.PropertyEffects=_exports.PropertyAccessors=_exports.PropertiesMixin=_exports.PropertiesChanged=_exports.PolymerIronList=_exports.PolymerElement=_exports.Polymer$1=_exports.Polymer=_exports.PaperRippleBehavior=_exports.PaperInkyFocusBehaviorImpl=_exports.PaperInkyFocusBehavior=_exports.OptionalMutableDataBehavior=_exports.OptionalMutableData=_exports.MutableDataBehavior=_exports.MutableData=_exports.MIXIN_MATCH=_exports.MEDIA_MATCH=_exports.Lumo=_exports.LegacyElementMixin=_exports.KeyboardNavigationMixin=_exports.ItemCache=_exports.IronSelection=_exports.IronSelectableBehavior=_exports.IronScrollTargetBehavior=_exports.IronResizableBehavior=_exports.IronMultiSelectableBehaviorImpl=_exports.IronMultiSelectableBehavior=_exports.IronMeta=_exports.IronControlState=_exports.IronButtonStateImpl=_exports.IronButtonState=_exports.IronA11yKeysBehavior=_exports.IS_VAR=_exports.HOST_SUFFIX=_exports.HOST_PREFIX=_exports.GridElement=_exports.GridColumnElement=_exports.GestureEventListeners=_exports.FlattenedNodesObserver=_exports.FilterMixin=_exports.EventContextMixin=_exports.EventApi=_exports.ElementWithBackground=_exports.ElementMixin$1=_exports.ElementMixin=_exports.DynamicColumnsMixin=_exports.DragAndDropMixin=_exports.DomRepeat=_exports.DomModule=_exports.DomIf=_exports.DomBind=_exports.DomApi=_exports.DirMixin=_exports.Debouncer=_exports.DataProviderMixin=_exports.CustomStyleProvider=_exports.CustomStyleInterfaceInterface=_exports.CustomStyle=_exports.ControlStateMixin=_exports.ColumnResizingMixin=_exports.ColumnReorderingMixin=_exports.ColumnBaseMixin=_exports.Class=_exports.CheckboxElement=_exports.Base=_exports.BRACKETED=_exports.ArraySelectorMixin=_exports.ArraySelector=_exports.ArrayDataProviderMixin=_exports.AppScrollEffectsBehavior=_exports.AppRouteConverterBehavior=_exports.AppLayoutBehavior=_exports.ActiveItemMixin=_exports.ANIMATION_MATCH=_exports.A11yMixin=void 0;_exports.wrap$1=_exports.wrap=_exports.version$1=_exports.version=_exports.useShadow=_exports.useNativeCustomElements=_exports.useNativeCSSProperties=_exports.usageStatistics=_exports.updateStyles=_exports.types=_exports.timeOut=_exports.syncInitialRender=_exports.strictTemplatePolicy=_exports.setSyncInitialRender=_exports.setStrictTemplatePolicy=_exports.setSanitizeDOMValue=_exports.setRootPath=_exports.setPassiveTouchGestures=_exports.setLegacyOptimizations=_exports.setCancelSyntheticClickEvents=_exports.setAllowTemplateFromDomModule=_exports.scrollTimingFunction=_exports.scroll=_exports.scopingAttribute=_exports.sanitizeDOMValue=_exports.runIfDevelopmentMode=_exports.rootPath=_exports.remove=_exports.registrations=_exports.registerEffect=_exports.recognizers=_exports.queryAllRoot=_exports.passiveTouchGestures=_exports.nativeShadow=_exports.nativeCssVariables=_exports.microTask=_exports.matchesSelector=_exports.legacyOptimizations=_exports.isDeep=_exports.instanceCount=_exports.idlePeriod=_exports.htmlLiteral=_exports.html$2=_exports.html$1=_exports.html=_exports.gestures=_exports.flushDebouncers=_exports.flush$1=_exports.flush=_exports.findOriginalTarget=_exports.dom=_exports.disableRuntime=_exports.dedupingMixin=void 0;meta=babelHelpers.interopRequireWildcard(meta);_require=babelHelpers.interopRequireWildcard(_require);const nativeShadow=!(window.ShadyDOM&&window.ShadyDOM.inUse);_exports.nativeShadow=nativeShadow;let nativeCssVariables_;/**
+*/'use strict';Object.defineProperty(_exports,"__esModule",{value:!0});_exports.$documentWaitDefault=documentWait;_exports.addListener=addListener;_exports.afterNextRender=afterNextRender;_exports.applyCss=applyCss;_exports.applyStyle=applyStyle;_exports.applyStylePlaceHolder=applyStylePlaceHolder;_exports.beforeNextRender=beforeNextRender;_exports.calculateSplices=calculateSplices;_exports.camelToDashCase=camelToDashCase;_exports.createScopeStyle=createScopeStyle;_exports.cssFromModule=cssFromModule;_exports.cssFromModuleImports=cssFromModuleImports;_exports.cssFromModules=cssFromModules;_exports.cssFromTemplate=cssFromTemplate;_exports.dashToCamelCase=dashToCamelCase;_exports.deepTargetFind=deepTargetFind;_exports.detectMixin=detectMixin;_exports.dumpRegistrations=dumpRegistrations;_exports.elementHasBuiltCss=elementHasBuiltCss;_exports.elementsAreInvalid=elementsAreInvalid;_exports.findMatchingParen=findMatchingParen;_exports.flush$2=flush;_exports.forEachRule=forEachRule;_exports.gatherStyleText=gatherStyleText;_exports.get=get;_exports.getBuildComment=getBuildComment;_exports.getComputedStyleValue=getComputedStyleValue;_exports.getCssBuild=getCssBuild;_exports.getIsExtends=getIsExtends;_exports.hideElementsGlobally=hideElementsGlobally;_exports.incrementInstanceCount=incrementInstanceCount;_exports.invalidate=invalidate;_exports.invalidateTemplate=invalidateTemplate;_exports.isAncestor=isAncestor;_exports.isDescendant=isDescendant;_exports.isKeyframesSelector=isKeyframesSelector;_exports.isOptimalCssBuild=isOptimalCssBuild;_exports.isPath=isPath;_exports.isTargetedBuild=isTargetedBuild;_exports.isUnscopedStyle=isUnscopedStyle;_exports.isValid=isValid;_exports.isValidating=isValidating;_exports.matches=matches;_exports.mixinBehaviors=mixinBehaviors;_exports.modelForElement=modelForElement;_exports.normalize=normalize;_exports.parse=parse;_exports.pathFromUrl=pathFromUrl;_exports.prevent=prevent;_exports.processUnscopedStyle=processUnscopedStyle;_exports.processVariableAndFallback=processVariableAndFallback;_exports.register=register$1;_exports.register$1=register;_exports.removeCustomPropAssignment=removeCustomPropAssignment;_exports.removeListener=removeListener;_exports.resetMouseCanceller=resetMouseCanceller;_exports.resolveCss=resolveCss;_exports.resolveUrl=resolveUrl;_exports.root=root;_exports.rulesForStyle=rulesForStyle;_exports.scopeSubtree=scopeSubtree;_exports.set=set;_exports.setElementClassRaw=setElementClassRaw;_exports.setTouchAction=setTouchAction;_exports.split=split;_exports.splitSelectorList=splitSelectorList;_exports.startValidating=startValidating;_exports.startValidatingTemplate=startValidatingTemplate;_exports.stringify=stringify;_exports.stylesFromModule=stylesFromModule;_exports.stylesFromModuleImports=stylesFromModuleImports;_exports.stylesFromModules=stylesFromModules;_exports.stylesFromTemplate=stylesFromTemplate;_exports.templateIsValid=templateIsValid;_exports.templateIsValidating=templateIsValidating;_exports.templatize=templatize;_exports.toCssText=toCssText;_exports.translate=translate;_exports.updateNativeProperties=updateNativeProperties;_exports.$vaadinUsageStatistics=_exports.$vaadinThemePropertyMixin=_exports.$vaadinThemableMixin=_exports.$vaadinGridTemplatizer=_exports.$vaadinGridStylingMixin=_exports.$vaadinGridSortMixin=_exports.$vaadinGridSelectionMixin=_exports.$vaadinGridScroller=_exports.$vaadinGridScrollMixin=_exports.$vaadinGridRowDetailsMixin=_exports.$vaadinGridKeyboardNavigationMixin=_exports.$vaadinGridFilterMixin=_exports.$vaadinGridEventContextMixin=_exports.$vaadinGridDynamicColumnsMixin=_exports.$vaadinGridDragAndDropMixin=_exports.$vaadinGridDataProviderMixin=_exports.$vaadinGridColumnResizingMixin=_exports.$vaadinGridColumnReorderingMixin=_exports.$vaadinGridColumn=_exports.$vaadinGridArrayDataProviderMixin=_exports.$vaadinGridActiveItemMixin=_exports.$vaadinGridA11yMixin=_exports.$vaadinGrid=_exports.$vaadinElementMixin=_exports.$vaadinDevelopmentModeDetector=_exports.$vaadinControlStateMixin=_exports.$vaadinCheckbox=_exports.$unscopedStyleHandler=_exports.$templatizerBehavior=_exports.$templatize=_exports.$templateStamp=_exports.$templateMapDefault=_exports.$templateMap=_exports.$telemetry=_exports.$styleUtil=_exports.$styleSettings=_exports.$styleGather=_exports.$settings=_exports.$scopeSubtree=_exports.$resolveUrl=_exports.$renderStatus=_exports.$propertyEffects=_exports.$propertyAccessors=_exports.$propertiesMixin=_exports.$propertiesChanged=_exports.$polymerLegacy=_exports.$polymerFn=_exports.$polymerElement=_exports.$polymerDom=_exports.$path=_exports.$paperRippleBehavior=_exports.$paperInkyFocusBehavior=_exports.$paperButtonBehavior=_exports.$mutableDataBehavior=_exports.$mutableData=_exports.$mixin=_exports.$legacyElementMixin=_exports.$ironSelection=_exports.$ironSelectable=_exports.$ironScrollTargetBehavior=_exports.$ironResizableBehavior=_exports.$ironMultiSelectable=_exports.$ironMeta=_exports.$ironList=_exports.$ironControlState=_exports.$ironButtonState=_exports.$ironA11yKeysBehavior=_exports.$htmlTag=_exports.$hideTemplateControls=_exports.$helpers=_exports.$gestures=_exports.$gestureEventListeners=_exports.$flush=_exports.$flattenedNodesObserver=_exports.$elementMixin=_exports.$domRepeat=_exports.$domModule=_exports.$domIf=_exports.$domBind=_exports.$documentWait=_exports.$dirMixin=_exports.$debounce=_exports.$dateformat=_exports.$customStyleInterfaceDefault=_exports.$customStyleInterface$1=_exports.$customStyle=_exports.$cssParse=_exports.$commonUtils=_exports.$commonRegex=_exports.$class=_exports.$caseMap=_exports.$async=_exports.$arraySplice=_exports.$arraySelector=_exports.$applyShimUtils=_exports.$applyShimDefault=_exports.$applyShim$1=_exports.$appScrollEffectsBehavior=_exports.$appRouteConverterBehavior=_exports.$appLayoutBehavior=void 0;_exports.enqueueDebouncer$1=_exports.enqueueDebouncer=_exports.addDebouncer=_exports.add=_exports._scrollTimer=_exports._scrollEffects=_exports.VAR_CONSUMED=_exports.VAR_ASSIGN=_exports.ThemePropertyMixin=_exports.ThemableMixin=_exports.Templatizer$1=_exports.Templatizer=_exports.TemplateStamp=_exports.TemplateInstanceBase=_exports.StylingMixin=_exports.StyleNode=_exports.SortMixin=_exports.SelectionMixin=_exports.ScrollerElement=_exports.ScrollMixin=_exports.RowDetailsMixin=_exports.PropertyEffects=_exports.PropertyAccessors=_exports.PropertiesMixin=_exports.PropertiesChanged=_exports.PolymerIronList=_exports.PolymerElement=_exports.Polymer$1=_exports.Polymer=_exports.PaperRippleBehavior=_exports.PaperInkyFocusBehaviorImpl=_exports.PaperInkyFocusBehavior=_exports.PaperButtonBehaviorImpl=_exports.PaperButtonBehavior=_exports.OptionalMutableDataBehavior=_exports.OptionalMutableData=_exports.MutableDataBehavior=_exports.MutableData=_exports.MIXIN_MATCH=_exports.MEDIA_MATCH=_exports.Lumo=_exports.LegacyElementMixin=_exports.KeyboardNavigationMixin=_exports.ItemCache=_exports.IronSelection=_exports.IronSelectableBehavior=_exports.IronScrollTargetBehavior=_exports.IronResizableBehavior=_exports.IronMultiSelectableBehaviorImpl=_exports.IronMultiSelectableBehavior=_exports.IronMeta=_exports.IronControlState=_exports.IronButtonStateImpl=_exports.IronButtonState=_exports.IronA11yKeysBehavior=_exports.IS_VAR=_exports.HOST_SUFFIX=_exports.HOST_PREFIX=_exports.GridElement=_exports.GridColumnElement=_exports.GestureEventListeners=_exports.FlattenedNodesObserver=_exports.FilterMixin=_exports.EventContextMixin=_exports.EventApi=_exports.ElementWithBackground=_exports.ElementMixin$1=_exports.ElementMixin=_exports.DynamicColumnsMixin=_exports.DragAndDropMixin=_exports.DomRepeat=_exports.DomModule=_exports.DomIf=_exports.DomBind=_exports.DomApi=_exports.DirMixin=_exports.Debouncer=_exports.DataProviderMixin=_exports.CustomStyleProvider=_exports.CustomStyleInterfaceInterface=_exports.CustomStyle=_exports.ControlStateMixin=_exports.ColumnResizingMixin=_exports.ColumnReorderingMixin=_exports.ColumnBaseMixin=_exports.Class=_exports.CheckboxElement=_exports.Base=_exports.BRACKETED=_exports.ArraySelectorMixin=_exports.ArraySelector=_exports.ArrayDataProviderMixin=_exports.AppScrollEffectsBehavior=_exports.AppRouteConverterBehavior=_exports.AppLayoutBehavior=_exports.ActiveItemMixin=_exports.ANIMATION_MATCH=_exports.A11yMixin=_exports.$wrap=_exports.$version=void 0;_exports.wrap$1=_exports.wrap=_exports.version$1=_exports.version=_exports.useShadow=_exports.useNativeCustomElements=_exports.useNativeCSSProperties=_exports.usageStatistics=_exports.updateStyles=_exports.types=_exports.timeOut=_exports.syncInitialRender=_exports.strictTemplatePolicy=_exports.setSyncInitialRender=_exports.setStrictTemplatePolicy=_exports.setSanitizeDOMValue=_exports.setRootPath=_exports.setPassiveTouchGestures=_exports.setLegacyOptimizations=_exports.setCancelSyntheticClickEvents=_exports.setAllowTemplateFromDomModule=_exports.scrollTimingFunction=_exports.scroll=_exports.scopingAttribute=_exports.sanitizeDOMValue=_exports.runIfDevelopmentMode=_exports.rootPath=_exports.remove=_exports.registrations=_exports.registerEffect=_exports.recognizers=_exports.queryAllRoot=_exports.passiveTouchGestures=_exports.nativeShadow=_exports.nativeCssVariables=_exports.microTask=_exports.matchesSelector=_exports.legacyOptimizations=_exports.isDeep=_exports.instanceCount=_exports.idlePeriod=_exports.htmlLiteral=_exports.html$2=_exports.html$1=_exports.html=_exports.gestures=_exports.flushDebouncers=_exports.flush$1=_exports.flush=_exports.findOriginalTarget=_exports.dom=_exports.disableRuntime=_exports.dedupingMixin=_exports.dateFormat=_exports.cssBuild=_exports.cancelSyntheticClickEvents=_exports.animationFrame=_exports.allowTemplateFromDomModule=void 0;meta=babelHelpers.interopRequireWildcard(meta);_require=babelHelpers.interopRequireWildcard(_require);const nativeShadow=!(window.ShadyDOM&&window.ShadyDOM.inUse);_exports.nativeShadow=nativeShadow;let nativeCssVariables_;/**
                           * @param {(ShadyCSSOptions | ShadyCSSInterface)=} settings
                           */function calcCssVariables(settings){if(settings&&settings.shimcssproperties){nativeCssVariables_=!1}else{// chrome 49 has semi-working css vars, check if box-shadow works
 // safari 9.1 has a recalc bug: https://bugs.webkit.org/show_bug.cgi?id=155782
@@ -9920,7 +9920,176 @@ var domContainer=dom(this._rippleContainer||this),target=dom(optTriggeringEvent)
    * Create the element's ripple effect via creating a `<paper-ripple>`.
    * Override this method to customize the ripple element.
    * @return {!PaperRippleElement} Returns a `<paper-ripple>` element.
-   */_createRipple:function(){var element=/** @type {!PaperRippleElement} */document.createElement("paper-ripple");return element},_noinkChanged:function(noink){if(this.hasRipple()){this._ripple.noink=noink}}};_exports.PaperRippleBehavior=PaperRippleBehavior;var paperRippleBehavior={PaperRippleBehavior:PaperRippleBehavior};_exports.$paperRippleBehavior=paperRippleBehavior;const PaperInkyFocusBehaviorImpl={observers:["_focusedChanged(receivedFocusFromKeyboard)"],_focusedChanged:function(receivedFocusFromKeyboard){if(receivedFocusFromKeyboard){this.ensureRipple()}if(this.hasRipple()){this._ripple.holdDown=receivedFocusFromKeyboard}},_createRipple:function(){var ripple=PaperRippleBehavior._createRipple();ripple.id="ink";ripple.setAttribute("center","");ripple.classList.add("circle");return ripple}};/** @polymerBehavior */_exports.PaperInkyFocusBehaviorImpl=PaperInkyFocusBehaviorImpl;const PaperInkyFocusBehavior=[IronButtonState,IronControlState,PaperRippleBehavior,PaperInkyFocusBehaviorImpl];_exports.PaperInkyFocusBehavior=PaperInkyFocusBehavior;var paperInkyFocusBehavior={PaperInkyFocusBehaviorImpl:PaperInkyFocusBehaviorImpl,PaperInkyFocusBehavior:PaperInkyFocusBehavior};_exports.$paperInkyFocusBehavior=paperInkyFocusBehavior;const template$2=html`
+   */_createRipple:function(){var element=/** @type {!PaperRippleElement} */document.createElement("paper-ripple");return element},_noinkChanged:function(noink){if(this.hasRipple()){this._ripple.noink=noink}}};_exports.PaperRippleBehavior=PaperRippleBehavior;var paperRippleBehavior={PaperRippleBehavior:PaperRippleBehavior};_exports.$paperRippleBehavior=paperRippleBehavior;const PaperButtonBehaviorImpl={properties:{/**
+     * The z-depth of this element, from 0-5. Setting to 0 will remove the
+     * shadow, and each increasing number greater than 0 will be "deeper"
+     * than the last.
+     *
+     * @attribute elevation
+     * @type number
+     * @default 1
+     */elevation:{type:Number,reflectToAttribute:!0,readOnly:!0}},observers:["_calculateElevation(focused, disabled, active, pressed, receivedFocusFromKeyboard)","_computeKeyboardClass(receivedFocusFromKeyboard)"],hostAttributes:{role:"button",tabindex:"0",animated:!0},_calculateElevation:function(){var e=1;if(this.disabled){e=0}else if(this.active||this.pressed){e=4}else if(this.receivedFocusFromKeyboard){e=3}this._setElevation(e)},_computeKeyboardClass:function(receivedFocusFromKeyboard){this.toggleClass("keyboard-focus",receivedFocusFromKeyboard)},/**
+   * In addition to `IronButtonState` behavior, when space key goes down,
+   * create a ripple down effect.
+   *
+   * @param {!KeyboardEvent} event .
+   */_spaceKeyDownHandler:function(event){IronButtonStateImpl._spaceKeyDownHandler.call(this,event);// Ensure that there is at most one ripple when the space key is held down.
+if(this.hasRipple()&&1>this.getRipple().ripples.length){this._ripple.uiDownAction()}},/**
+   * In addition to `IronButtonState` behavior, when space key goes up,
+   * create a ripple up effect.
+   *
+   * @param {!KeyboardEvent} event .
+   */_spaceKeyUpHandler:function(event){IronButtonStateImpl._spaceKeyUpHandler.call(this,event);if(this.hasRipple()){this._ripple.uiUpAction()}}};/** @polymerBehavior */_exports.PaperButtonBehaviorImpl=PaperButtonBehaviorImpl;const PaperButtonBehavior=[IronButtonState,IronControlState,PaperRippleBehavior,PaperButtonBehaviorImpl];_exports.PaperButtonBehavior=PaperButtonBehavior;var paperButtonBehavior={PaperButtonBehaviorImpl:PaperButtonBehaviorImpl,PaperButtonBehavior:PaperButtonBehavior};_exports.$paperButtonBehavior=paperButtonBehavior;const PaperInkyFocusBehaviorImpl={observers:["_focusedChanged(receivedFocusFromKeyboard)"],_focusedChanged:function(receivedFocusFromKeyboard){if(receivedFocusFromKeyboard){this.ensureRipple()}if(this.hasRipple()){this._ripple.holdDown=receivedFocusFromKeyboard}},_createRipple:function(){var ripple=PaperRippleBehavior._createRipple();ripple.id="ink";ripple.setAttribute("center","");ripple.classList.add("circle");return ripple}};/** @polymerBehavior */_exports.PaperInkyFocusBehaviorImpl=PaperInkyFocusBehaviorImpl;const PaperInkyFocusBehavior=[IronButtonState,IronControlState,PaperRippleBehavior,PaperInkyFocusBehaviorImpl];_exports.PaperInkyFocusBehavior=PaperInkyFocusBehavior;var paperInkyFocusBehavior={PaperInkyFocusBehaviorImpl:PaperInkyFocusBehaviorImpl,PaperInkyFocusBehavior:PaperInkyFocusBehavior};_exports.$paperInkyFocusBehavior=paperInkyFocusBehavior;const template$2=html`
+<custom-style>
+  <style is="custom-style">
+    html {
+
+      --shadow-transition: {
+        transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+      };
+
+      --shadow-none: {
+        box-shadow: none;
+      };
+
+      /* from http://codepen.io/shyndman/pen/c5394ddf2e8b2a5c9185904b57421cdb */
+
+      --shadow-elevation-2dp: {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                    0 1px 5px 0 rgba(0, 0, 0, 0.12),
+                    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      };
+
+      --shadow-elevation-3dp: {
+        box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14),
+                    0 1px 8px 0 rgba(0, 0, 0, 0.12),
+                    0 3px 3px -2px rgba(0, 0, 0, 0.4);
+      };
+
+      --shadow-elevation-4dp: {
+        box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+                    0 1px 10px 0 rgba(0, 0, 0, 0.12),
+                    0 2px 4px -1px rgba(0, 0, 0, 0.4);
+      };
+
+      --shadow-elevation-6dp: {
+        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                    0 1px 18px 0 rgba(0, 0, 0, 0.12),
+                    0 3px 5px -1px rgba(0, 0, 0, 0.4);
+      };
+
+      --shadow-elevation-8dp: {
+        box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                    0 3px 14px 2px rgba(0, 0, 0, 0.12),
+                    0 5px 5px -3px rgba(0, 0, 0, 0.4);
+      };
+
+      --shadow-elevation-12dp: {
+        box-shadow: 0 12px 16px 1px rgba(0, 0, 0, 0.14),
+                    0 4px 22px 3px rgba(0, 0, 0, 0.12),
+                    0 6px 7px -4px rgba(0, 0, 0, 0.4);
+      };
+
+      --shadow-elevation-16dp: {
+        box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+                    0  6px 30px 5px rgba(0, 0, 0, 0.12),
+                    0  8px 10px -5px rgba(0, 0, 0, 0.4);
+      };
+
+      --shadow-elevation-24dp: {
+        box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
+                    0 9px 46px 8px rgba(0, 0, 0, 0.12),
+                    0 11px 15px -7px rgba(0, 0, 0, 0.4);
+      };
+    }
+  </style>
+</custom-style>`;template$2.setAttribute("style","display: none;");document.head.appendChild(template$2.content);const template$3=html`
+<dom-module id="paper-material-styles">
+  <template>
+    <style>
+      html {
+        --paper-material: {
+          display: block;
+          position: relative;
+        };
+        --paper-material-elevation-1: {
+          @apply --shadow-elevation-2dp;
+        };
+        --paper-material-elevation-2: {
+          @apply --shadow-elevation-4dp;
+        };
+        --paper-material-elevation-3: {
+          @apply --shadow-elevation-6dp;
+        };
+        --paper-material-elevation-4: {
+          @apply --shadow-elevation-8dp;
+        };
+        --paper-material-elevation-5: {
+          @apply --shadow-elevation-16dp;
+        };
+      }
+      .paper-material {
+        @apply --paper-material;
+      }
+      .paper-material[elevation="1"] {
+        @apply --paper-material-elevation-1;
+      }
+      .paper-material[elevation="2"] {
+        @apply --paper-material-elevation-2;
+      }
+      .paper-material[elevation="3"] {
+        @apply --paper-material-elevation-3;
+      }
+      .paper-material[elevation="4"] {
+        @apply --paper-material-elevation-4;
+      }
+      .paper-material[elevation="5"] {
+        @apply --paper-material-elevation-5;
+      }
+
+      /* Duplicate the styles because of https://github.com/webcomponents/shadycss/issues/193 */
+      :host {
+        --paper-material: {
+          display: block;
+          position: relative;
+        };
+        --paper-material-elevation-1: {
+          @apply --shadow-elevation-2dp;
+        };
+        --paper-material-elevation-2: {
+          @apply --shadow-elevation-4dp;
+        };
+        --paper-material-elevation-3: {
+          @apply --shadow-elevation-6dp;
+        };
+        --paper-material-elevation-4: {
+          @apply --shadow-elevation-8dp;
+        };
+        --paper-material-elevation-5: {
+          @apply --shadow-elevation-16dp;
+        };
+      }
+      :host(.paper-material) {
+        @apply --paper-material;
+      }
+      :host(.paper-material[elevation="1"]) {
+        @apply --paper-material-elevation-1;
+      }
+      :host(.paper-material[elevation="2"]) {
+        @apply --paper-material-elevation-2;
+      }
+      :host(.paper-material[elevation="3"]) {
+        @apply --paper-material-elevation-3;
+      }
+      :host(.paper-material[elevation="4"]) {
+        @apply --paper-material-elevation-4;
+      }
+      :host(.paper-material[elevation="5"]) {
+        @apply --paper-material-elevation-5;
+      }
+    </style>
+  </template>
+</dom-module>`;template$3.setAttribute("style","display: none;");document.head.appendChild(template$3.content);const template$4=html`
 <custom-style>
   <style is="custom-style">
     html {
@@ -10243,7 +10412,7 @@ var domContainer=dom(this._rippleContainer||this),target=dom(optTriggeringEvent)
 
   </style>
 </custom-style>
-`;template$2.setAttribute("style","display: none;");document.head.appendChild(template$2.content);const template$3=html`
+`;template$4.setAttribute("style","display: none;");document.head.appendChild(template$4.content);const template$5=html`
 <custom-style>
   <style is="custom-style">
     html {
@@ -10299,7 +10468,142 @@ var domContainer=dom(this._rippleContainer||this),target=dom(optTriggeringEvent)
       --default-primary-color: var(--primary-color);
     }
   </style>
-</custom-style>`;template$3.setAttribute("style","display: none;");document.head.appendChild(template$3.content);Polymer({is:"paper-icon-button",_template:html`
+</custom-style>`;template$5.setAttribute("style","display: none;");document.head.appendChild(template$5.content);const template$6=html`
+  <style include="paper-material-styles">
+    :host {
+      @apply --layout-vertical;
+      @apply --layout-center-center;
+
+      background: var(--paper-fab-background, var(--accent-color));
+      border-radius: 50%;
+      box-sizing: border-box;
+      color: var(--text-primary-color);
+      cursor: pointer;
+      height: 56px;
+      min-width: 0;
+      outline: none;
+      padding: 16px;
+      position: relative;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -webkit-user-select: none;
+      user-select: none;
+      width: 56px;
+      z-index: 0;
+
+      /* NOTE: Both values are needed, since some phones require the value \`transparent\`. */
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+      -webkit-tap-highlight-color: transparent;
+
+      @apply --paper-fab;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    :host([mini]) {
+      width: 40px;
+      height: 40px;
+      padding: 8px;
+
+      @apply --paper-fab-mini;
+    }
+
+    :host([disabled]) {
+      color: var(--paper-fab-disabled-text, var(--paper-grey-500));
+      background: var(--paper-fab-disabled-background, var(--paper-grey-300));
+
+      @apply --paper-fab-disabled;
+    }
+
+    iron-icon {
+      @apply --paper-fab-iron-icon;
+    }
+
+    span {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: center;
+
+      @apply --paper-fab-label;
+    }
+
+    :host(.keyboard-focus) {
+      background: var(--paper-fab-keyboard-focus-background, var(--paper-pink-900));
+    }
+
+    :host([elevation="1"]) {
+      @apply --paper-material-elevation-1;
+    }
+
+    :host([elevation="2"]) {
+      @apply --paper-material-elevation-2;
+    }
+
+    :host([elevation="3"]) {
+      @apply --paper-material-elevation-3;
+    }
+
+    :host([elevation="4"]) {
+      @apply --paper-material-elevation-4;
+    }
+
+    :host([elevation="5"]) {
+      @apply --paper-material-elevation-5;
+    }
+  </style>
+
+  <iron-icon id="icon" hidden\$="{{!_computeIsIconFab(icon, src)}}" src="[[src]]" icon="[[icon]]"></iron-icon>
+  <span hidden\$="{{_computeIsIconFab(icon, src)}}">{{label}}</span>
+`;template$6.setAttribute("strip-whitespace","");/**
+                                                 Material design: [Floating Action
+                                                 Button](https://www.google.com/design/spec/components/buttons-floating-action-button.html)
+                                                                                               `paper-fab` is a floating action button. It contains an image placed in the
+                                                 center and comes in two sizes: regular size and a smaller size by applying the
+                                                 attribute `mini`. When the user touches the button, a ripple effect emanates
+                                                 from the center of the button.
+                                                                                               You may import `iron-icons` to use with this element, or provide a URL to a
+                                                 custom icon. See `iron-iconset` for more information about how to use a custom
+                                                 icon set.
+                                                                                               Example:
+                                                                                                   <script type="module">
+                                                     import '@polymer/iron-icons/iron-icons.js';
+                                                   </script>
+                                                                                                   <paper-fab icon="add"></paper-fab>
+                                                   <paper-fab mini icon="favorite"></paper-fab>
+                                                   <paper-fab src="star.png"></paper-fab>
+                                                                                               
+                                                 ### Styling
+                                                                                               The following custom properties and mixins are available for styling:
+                                                                                               Custom property | Description | Default
+                                                 ----------------|-------------|----------
+                                                 `--paper-fab-background` | The background color of the button | `--accent-color`
+                                                 `--paper-fab-keyboard-focus-background` | The background color of the button when focused | `--paper-pink-900`
+                                                 `--paper-fab-disabled-background` | The background color of the button when it's disabled | `--paper-grey-300`
+                                                 `--paper-fab-disabled-text` | The text color of the button when it's disabled | `--paper-grey-500`
+                                                 `--paper-fab` | Mixin applied to the button | `{}`
+                                                 `--paper-fab-mini` | Mixin applied to a mini button | `{}`
+                                                 `--paper-fab-disabled` | Mixin applied to a disabled button | `{}`
+                                                 `--paper-fab-iron-icon` | Mixin applied to the iron-icon within the button | `{}`
+                                                 `--paper-fab-label` | Mixin applied to the label within the button | `{}`
+                                                                                               @group Paper Elements
+                                                 @demo demo/index.html
+                                                 */Polymer({_template:template$6,is:"paper-fab",behaviors:[PaperButtonBehavior],properties:{/**
+     * The URL of an image for the icon. If the src property is specified,
+     * the icon property should not be.
+     */src:{type:String,value:""},/**
+     * Specifies the icon name or index in the set of icons available in
+     * the icon's icon set. If the icon property is specified,
+     * the src property should not be.
+     */icon:{type:String,value:""},/**
+     * Set this to true to style this is a "mini" FAB.
+     */mini:{type:Boolean,value:!1,reflectToAttribute:!0},/**
+     * The label displayed in the badge. The label is centered, and ideally
+     * should have very few characters.
+     */label:{type:String,observer:"_labelChanged"}},_labelChanged:function(){this.setAttribute("aria-label",this.label)},_computeIsIconFab:function(icon,src){return 0<icon.length||0<src.length}});Polymer({is:"paper-icon-button",_template:html`
     <style>
       :host {
         display: inline-block;
@@ -13250,7 +13554,9 @@ this._update()}}/**
       </iron-ajax>
 
       <a href="[[connect.url]]"><iron-image src="/images/btn_strava_connectwith_orange.png"></iron-image></a>
-    `}__getRedirectURL(){var url=new URL(document.location);url.pathname="connect-view";console.log(url.toString());var params={redirect_url:url.toString()};return params}}window.customElements.define("connect-button",ConnectButton);const $_documentContainer$8=document.createElement("template");$_documentContainer$8.innerHTML=`<iron-iconset-svg name="my-icons" size="24">
+    `}__getRedirectURL(){// Simple function to create the redirect URL correctly.  
+// Uses the URL object rather than string manipulation.
+var url=new URL(document.location);url.pathname="connect-view";console.log(url.toString());var params={redirect_url:url.toString()};return params}}window.customElements.define("connect-button",ConnectButton);const $_documentContainer$8=document.createElement("template");$_documentContainer$8.innerHTML=`<iron-iconset-svg name="my-icons" size="24">
   <svg>
     <defs>
       <g id="arrow-back">
@@ -13321,6 +13627,8 @@ setRootPath(MyAppGlobals.rootPath);class BBBBCSegmentTracker extends PolymerElem
 
       <app-route route="{{route}}" pattern="[[rootPath]]:page" data="{{routeData}}" tail="{{subroute}}">
       </app-route>
+      <app-route route="{{subroute}}" pattern="/:id" data="{{subrouteData}}">
+      </app-route>
 
       <my-config></my-config>
 
@@ -13352,6 +13660,7 @@ setRootPath(MyAppGlobals.rootPath);class BBBBCSegmentTracker extends PolymerElem
             <members-view name="members-view"></members-view>
             <challenges-view name="challenges-view"></challenges-view>
             <connect-view name="connect-view"></connect-view>
+            <challenge-attempts-view name="challenge-attempts-view" challenge="{{subrouteData}}"></challenge-attempts-view>
             <my-view404 name="view404"></my-view404>
           </iron-pages>
         </app-header-layout>
@@ -13360,12 +13669,32 @@ setRootPath(MyAppGlobals.rootPath);class BBBBCSegmentTracker extends PolymerElem
 //
 // If no page was found in the route data, page will be an empty string.
 // Show 'view1' in that case. And if the page doesn't exist, show 'view404'.
-if(!page){this.page="home-view"}else if(-1!==["home-view","members-view","challenges-view","connect-view"].indexOf(page)){this.page=page}else{this.page="view404"}// Close a non-persistent drawer when the page & route are changed.
+if(!page){this.page="home-view"}else if(-1!==["home-view","members-view","challenges-view","connect-view","challenge-attempts-view"].indexOf(page)){this.page=page}else{this.page="view404"}// Close a non-persistent drawer when the page & route are changed.
 if(!this.$.drawer.persistent){this.$.drawer.close()}}_pageChanged(page){// Import the page component on demand.
 //
 // Note: `polymer build` doesn't like string concatenation in the import
 // statement, so break it up.
-switch(page){case"home-view":new Promise((res,rej)=>_require.default(["./home-view.js"],res,rej)).then(bundle=>bundle&&bundle.$homeView||{});break;case"members-view":new Promise((res,rej)=>_require.default(["./members-view.js"],res,rej)).then(bundle=>bundle&&bundle.$membersView||{});break;case"challenges-view":new Promise((res,rej)=>_require.default(["./challenges-view.js"],res,rej)).then(bundle=>bundle&&bundle.$challengesView||{});break;case"connect-view":new Promise((res,rej)=>_require.default(["./connect-view.js"],res,rej)).then(bundle=>bundle&&bundle.$connectView||{});break;case"view404":new Promise((res,rej)=>_require.default(["./my-view404.js"],res,rej)).then(bundle=>bundle&&bundle.$myView404||{});break;}}}window.customElements.define("bbbbc-segment-tracker",BBBBCSegmentTracker);const $_documentContainer$9=document.createElement("template");$_documentContainer$9.innerHTML=`<dom-module id="shared-styles">
+switch(page){case"home-view":new Promise((res,rej)=>_require.default(["./home-view.js"],res,rej)).then(bundle=>bundle&&bundle.$homeView||{});break;case"members-view":new Promise((res,rej)=>_require.default(["./members-view.js"],res,rej)).then(bundle=>bundle&&bundle.$membersView||{});break;case"challenges-view":new Promise((res,rej)=>_require.default(["./challenges-view.js"],res,rej)).then(bundle=>bundle&&bundle.$challengesView||{});break;case"connect-view":new Promise((res,rej)=>_require.default(["./connect-view.js"],res,rej)).then(bundle=>bundle&&bundle.$connectView||{});break;case"challenge-attempts-view":new Promise((res,rej)=>_require.default(["./challenge-attempts-view.js"],res,rej)).then(bundle=>bundle&&bundle.$challengeAttemptsView||{});break;case"view404":new Promise((res,rej)=>_require.default(["./my-view404.js"],res,rej)).then(bundle=>bundle&&bundle.$myView404||{});break;}}}window.customElements.define("bbbbc-segment-tracker",BBBBCSegmentTracker);/*
+                                                                             * Date Format 1.2.3
+                                                                             * (c) 2007-2009 Steven Levithan <stevenlevithan.com>
+                                                                             * MIT license
+                                                                             *
+                                                                             * Includes enhancements by Scott Trenda <scott.trenda.net>
+                                                                             * and Kris Kowal <cixar.com/~kris.kowal/>
+                                                                             *
+                                                                             * Accepts a date, a mask, or a date and a mask.
+                                                                             * Returns a formatted version of the given date.
+                                                                             * The date defaults to the current date/time.
+                                                                             * The mask defaults to dateFormat.masks.default.
+                                                                             */var dateFormat=function(){var token=/d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZ]|"[^"]*"|'[^']*'/g,timezone=/\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g,timezoneClip=/[^-+\dA-Z]/g,pad=function(val,len){val=val+"";len=len||2;while(val.length<len)val="0"+val;return val};// Regexes and supporting functions are cached through closure
+return function(date,mask,utc){var dF=dateFormat;// You can't provide utc if you skip other args (use the "UTC:" mask prefix)
+if(1==arguments.length&&"[object String]"==Object.prototype.toString.call(date)&&!/\d/.test(date)){mask=date;date=void 0}// Passing date through Date applies Date.parse, if necessary
+date=date?new Date(date):new Date;if(isNaN(date))throw SyntaxError("invalid date");mask=(dF.masks[mask]||mask||dF.masks["default"])+"";// Allow setting the utc argument via the mask
+if("UTC:"==mask.slice(0,4)){mask=mask.slice(4);utc=!0}var _=utc?"getUTC":"get",d=date[_+"Date"](),D=date[_+"Day"](),m=date[_+"Month"](),y=date[_+"FullYear"](),H=date[_+"Hours"](),M=date[_+"Minutes"](),s=date[_+"Seconds"](),L=date[_+"Milliseconds"](),o=utc?0:date.getTimezoneOffset(),flags={d:d,dd:pad(d),ddd:dF.i18n.dayNames[D],dddd:dF.i18n.dayNames[D+7],m:m+1,mm:pad(m+1),mmm:dF.i18n.monthNames[m],mmmm:dF.i18n.monthNames[m+12],yy:(y+"").slice(2),yyyy:y,h:H%12||12,hh:pad(H%12||12),H:H,HH:pad(H),M:M,MM:pad(M),s:s,ss:pad(s),l:pad(L,3),L:pad(99<L?Math.round(L/10):L),t:12>H?"a":"p",tt:12>H?"am":"pm",T:12>H?"A":"P",TT:12>H?"AM":"PM",Z:utc?"UTC":((date+"").match(timezone)||[""]).pop().replace(timezoneClip,""),o:(0<o?"-":"+")+pad(100*Math.floor(Math.abs(o)/60)+Math.abs(o)%60,4),S:["th","st","nd","rd"][3<d%10?0:(10!=d%100-d%10)*d%10]};return mask.replace(token,function($0){return $0 in flags?flags[$0]:$0.slice(1,$0.length-1)})}}();// Some common format strings
+_exports.dateFormat=dateFormat;dateFormat.masks={default:"ddd mmm dd yyyy HH:MM:ss",shortDate:"m/d/yy",mediumDate:"mmm d, yyyy",longDate:"mmmm d, yyyy",fullDate:"dddd, mmmm d, yyyy",shortTime:"h:MM TT",mediumTime:"h:MM:ss TT",longTime:"h:MM:ss TT Z",isoDate:"yyyy-mm-dd",isoTime:"HH:MM:ss",isoDateTime:"yyyy-mm-dd'T'HH:MM:ss",isoUtcDateTime:"UTC:yyyy-mm-dd'T'HH:MM:ss'Z'"};// Internationalization strings
+dateFormat.i18n={dayNames:["Sun","Mon","Tue","Wed","Thu","Fri","Sat","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],monthNames:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","January","February","March","April","May","June","July","August","September","October","November","December"]};var dateformat={dateFormat:dateFormat};_exports.$dateformat=dateformat;class DateFormatter extends PolymerElement{static get template(){return html`
+      <time id="time" datetime$="{{datetime}}" format$="{{format}}">{{output}}</time>
+    `}static get properties(){return{target:{type:Object},format:{type:String},datetime:{type:String},output:{type:String,computed:"refresh(datetime, format)"}}}refresh(date_time,format_str){return dateFormat(date_time,format_str)}}window.customElements.define("date-formatter",DateFormatter);const $_documentContainer$9=document.createElement("template");$_documentContainer$9.innerHTML=`<dom-module id="shared-styles">
   <template>
     <style>
       .card {

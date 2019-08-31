@@ -1,10 +1,38 @@
-define(["./bbbbc-segment-tracker.js"],function(_bbbbcSegmentTracker){"use strict";class MembersView extends _bbbbcSegmentTracker.PolymerElement{static get template(){return _bbbbcSegmentTracker.html`
+define(["./bbbbc-segment-tracker.js"],function(_bbbbcSegmentTracker){"use strict";class MemberAvatar extends _bbbbcSegmentTracker.PolymerElement{static get template(){return _bbbbcSegmentTracker.html$1`
+      <style>
+        :host {
+          display: block;
+
+          padding: 10px 20px;
+        }
+      </style>
+
+      <my-config config="{{config}}"></my-config>
+
+      <iron-ajax
+        id="getConnectAjax"
+        auto
+        url="[[config.api]]/v1.0/members/[[memberId]]/avatar"
+        method="get"
+        handle-as="json"
+        last-response="{{avatar}}">
+      </iron-ajax>
+
+      <iron-image style="width:32px; height:32px; background-color: blue; display: block;" sizing="contain" preload fade src="[[avatar.avatar.url]]"></iron-image>
+    `}static get properties(){return{memberId:{type:Number,reflectToAttribute:!0}}}}window.customElements.define("member-avatar",MemberAvatar);class MembersView extends _bbbbcSegmentTracker.PolymerElement{static get template(){return _bbbbcSegmentTracker.html$1`
       <style include="shared-styles">
         :host {
           display: block;
 
           padding: 10px;
         }
+
+        paper-fab {
+          position: fixed;
+          right: 25px;
+          bottom: 30px;
+        }
+
       </style>
       
       <my-config config="{{config}}"></my-config>
@@ -21,8 +49,8 @@ define(["./bbbbc-segment-tracker.js"],function(_bbbbcSegmentTracker){"use strict
       <div class="card">
         <h1>Members</h1>
         <vaadin-grid theme="no-border" aria-label="Members Table" items="[[members.members]]">
-          <vaadin-grid-column width="60px" flex-grow="0" text-align="center">
-            <template><iron-image style="width:50px; height:50px; background-color: blue; display: block; " width="30" height="30" sizing="cover" preload fade src="https://dgalywyr863hv.cloudfront.net/pictures/athletes/308150/139501/1/medium.jpg"></iron-image></template>
+          <vaadin-grid-column width="80px" flex-grow="0" text-align="center">
+            <template><member-avatar member-id="[[item.id]]"></member-avatar></template>
           </vaadin-grid-column>
           <vaadin-grid-column>
             <template class="header">Name</template>
@@ -45,17 +73,8 @@ define(["./bbbbc-segment-tracker.js"],function(_bbbbcSegmentTracker){"use strict
             <template><paper-icon-button icon="delete" title="delete" disabled></paper-icon-button></template>
           </vaadin-grid-column>
         </vaadin-grid>
+
+        <paper-fab icon="refresh" disabled></paper-fab>
+
       </div>
-    `}// value(event) {
-//   console.log(event);
-//   console.log(this.$.appconfig);
-//   console.log(this.$.appconfig.api);
-// }
-// __getURL() {
-//   var config = this.$.appconfig.byKey('config');
-//   console.log("Config: " + config);
-//   var json = JSON.parse(config);
-//   console.log("Config: " + json.api);
-//   return json.api + "/v1.0/members";
-// }
-}window.customElements.define("members-view",MembersView)});
+    `}}window.customElements.define("members-view",MembersView)});

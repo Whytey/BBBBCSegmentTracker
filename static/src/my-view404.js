@@ -1,4 +1,4 @@
-define(["./bbbbc-segment-tracker.js"],function(_bbbbcSegmentTracker){"use strict";class MyView404 extends _bbbbcSegmentTracker.PolymerElement{static get template(){return _bbbbcSegmentTracker.html`
+define(["./bbbbc-segment-tracker.js"],function(_bbbbcSegmentTracker){"use strict";class MyView404 extends _bbbbcSegmentTracker.PolymerElement{static get template(){return _bbbbcSegmentTracker.html$1`
       <style>
         :host {
           display: block;

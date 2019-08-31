@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["index.html","7d991c79c42da0ac90b127e5321ab523"],["manifest.json","cc907d757c978bf973337cf6371baf94"],["src/bbbbc-segment-tracker.js","3457b623871079f0d5f0f42de2fa8768"],["src/challenges-view.js","4a36d597ae957201028217dc275bcc6f"],["src/connect-view.js","d88adb16366cdbb49c1ba312a06be8c2"],["src/home-view.js","6db90b3d59547a705aa8ebe2d00fb48a"],["src/members-view.js","0bad7192abce868f5c5ab07b1782c189"],["src/my-view404.js","84e9e8f439a2dc0a7c4f569dbd0bdc88"]];
+var precacheConfig = [["index.html","7d991c79c42da0ac90b127e5321ab523"],["manifest.json","cc907d757c978bf973337cf6371baf94"],["src/bbbbc-segment-tracker.js","5d2c6a12420b792c2502f8537ab1f3c9"],["src/challenge-attempts-view.js","b06e6410711154e392c61077294beca8"],["src/challenges-view.js","0c7ef5df85adf098862627e1d3e79ada"],["src/connect-view.js","7289792250fe7a4dc878ac20558137f0"],["src/home-view.js","32411f7d3775cb2c9d7072ce8c18c206"],["src/members-view.js","0c14c5e9f0cdce7706d57b402a3a088b"],["src/my-view404.js","862aeb0aa35610818b530c7ef814d7f7"]];
 var cacheName = 'sw-precache-v3--' + (self.registration ? self.registration.scope : '');
 
 

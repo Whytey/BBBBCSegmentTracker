@@ -1,4 +1,4 @@
-define(["exports","./bbbbc-segment-tracker.js"],function(_exports,_bbbbcSegmentTracker){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports._composedTreeContains=_composedTreeContains;_exports._getScrollInfo=_getScrollInfo;_exports._getScrollableNodes=_getScrollableNodes;_exports._getScrollingNode=_getScrollingNode;_exports._hasCachedLockedElement=_hasCachedLockedElement;_exports._hasCachedUnlockedElement=_hasCachedUnlockedElement;_exports._lockScrollInteractions=_lockScrollInteractions;_exports._scrollInteractionHandler=_scrollInteractionHandler;_exports._shouldPreventScrolling=_shouldPreventScrolling;_exports._unlockScrollInteractions=_unlockScrollInteractions;_exports.elementIsScrollLocked=elementIsScrollLocked;_exports.pushScrollLock=pushScrollLock;_exports.removeScrollLock=removeScrollLock;_exports.currentLockingElement=_exports._unlockedElementCache=_exports._lockingElements=_exports._lockedElementCache=_exports._boundScrollHandler=_exports.PaperSpinnerBehavior=_exports.IronOverlayManagerClass=_exports.IronOverlayManager=_exports.IronOverlayBehaviorImpl=_exports.IronOverlayBehavior=_exports.IronFocusablesHelper=_exports.IronFitBehavior=_exports.IronA11yAnnouncer=_exports.$paperSpinnerBehavior=_exports.$ironScrollManager=_exports.$ironOverlayManager=_exports.$ironOverlayBehavior=_exports.$ironFocusablesHelper=_exports.$ironFitBehavior=_exports.$ironA11yAnnouncer=void 0;const IronA11yAnnouncer=(0,_bbbbcSegmentTracker.Polymer)({_template:_bbbbcSegmentTracker.html$1`
+define(["exports","./bbbbc-segment-tracker.js"],function(_exports,_bbbbcSegmentTracker){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports._composedTreeContains=_composedTreeContains;_exports._getScrollInfo=_getScrollInfo;_exports._getScrollableNodes=_getScrollableNodes;_exports._getScrollingNode=_getScrollingNode;_exports._hasCachedLockedElement=_hasCachedLockedElement;_exports._hasCachedUnlockedElement=_hasCachedUnlockedElement;_exports._lockScrollInteractions=_lockScrollInteractions;_exports._scrollInteractionHandler=_scrollInteractionHandler;_exports._shouldPreventScrolling=_shouldPreventScrolling;_exports._unlockScrollInteractions=_unlockScrollInteractions;_exports.elementIsScrollLocked=elementIsScrollLocked;_exports.pushScrollLock=pushScrollLock;_exports.removeScrollLock=removeScrollLock;_exports.currentLockingElement=_exports._unlockedElementCache=_exports._lockingElements=_exports._lockedElementCache=_exports._boundScrollHandler=_exports.PaperSpinnerBehavior=_exports.IronOverlayManagerClass=_exports.IronOverlayManager=_exports.IronOverlayBehaviorImpl=_exports.IronOverlayBehavior=_exports.IronFocusablesHelper=_exports.IronFitBehavior=_exports.IronA11yAnnouncer=_exports.$paperSpinnerBehavior=_exports.$ironScrollManager=_exports.$ironOverlayManager=_exports.$ironOverlayBehavior=_exports.$ironFocusablesHelper=_exports.$ironFitBehavior=_exports.$ironA11yAnnouncer=void 0;const IronA11yAnnouncer=(0,_bbbbcSegmentTracker.Polymer)({_template:_bbbbcSegmentTracker.html`
     <style>
       :host {
         display: inline-block;
@@ -238,7 +238,7 @@ var len=tabbables.length;if(2>len){return tabbables}var pivot=Math.ceil(len/2),l
    * @private
    */_hasLowerTabOrder:function(a,b){// Normalize tabIndexes
 // e.g. in Firefox `<div contenteditable>` has `tabIndex = -1`
-var ati=Math.max(a.tabIndex,0),bti=Math.max(b.tabIndex,0);return 0===ati||0===bti?bti>ati:ati>bti}};_exports.IronFocusablesHelper=IronFocusablesHelper;var ironFocusablesHelper={IronFocusablesHelper:IronFocusablesHelper};_exports.$ironFocusablesHelper=ironFocusablesHelper;(0,_bbbbcSegmentTracker.Polymer)({_template:_bbbbcSegmentTracker.html$1`
+var ati=Math.max(a.tabIndex,0),bti=Math.max(b.tabIndex,0);return 0===ati||0===bti?bti>ati:ati>bti}};_exports.IronFocusablesHelper=IronFocusablesHelper;var ironFocusablesHelper={IronFocusablesHelper:IronFocusablesHelper};_exports.$ironFocusablesHelper=ironFocusablesHelper;(0,_bbbbcSegmentTracker.Polymer)({_template:_bbbbcSegmentTracker.html`
     <style>
       :host {
         position: fixed;
@@ -1133,7 +1133,7 @@ if("loading"===alt){this.alt=this.getAttribute("aria-label")||alt}else{this.__se
       }
     </style>
   </template>
-</dom-module>`;document.head.appendChild($_documentContainer.content);const template=_bbbbcSegmentTracker.html$1`
+</dom-module>`;document.head.appendChild($_documentContainer.content);const template=_bbbbcSegmentTracker.html`
   <style include="paper-spinner-styles"></style>
 
   <div id="spinnerContainer" class-name="[[__computeContainerClasses(active, __coolingDown)]]" on-animationend="__reset" on-webkit-animation-end="__reset">
@@ -1230,7 +1230,7 @@ if("loading"===alt){this.alt=this.getAttribute("aria-label")||alt}else{this.__se
                          @element paper-toast
                          @demo demo/index.html
                          @hero hero.svg
-                         */(0,_bbbbcSegmentTracker.Polymer)({_template:_bbbbcSegmentTracker.html$1`
+                         */(0,_bbbbcSegmentTracker.Polymer)({_template:_bbbbcSegmentTracker.html`
     <style>
       :host {
         display: block;
@@ -1333,7 +1333,7 @@ if(e&&e.target===this&&"opacity"===e.propertyName){if(this.opened){this._finishR
      *
      * @event 'iron-announce'
      * @param {{text: string}} detail Contains text that will be announced.
-     */});class StatusIcon extends _bbbbcSegmentTracker.PolymerElement{static get template(){return _bbbbcSegmentTracker.html`
+     */});class StatusIcon extends _bbbbcSegmentTracker.PolymerElement{static get template(){return _bbbbcSegmentTracker.html$1`
       <style>
         :host {
           display: block;
@@ -1359,7 +1359,7 @@ if(e&&e.target===this&&"opacity"===e.propertyName){if(this.opened){this._finishR
       <template is="dom-if" if="[[succeeded]]">
         <iron-icon icon="check-circle"></iron-icon>
       </template>
-    `}static get properties(){return{id:String,started:{type:Boolean,value:!1},errored:{type:Boolean,value:!1},succeeded:{type:Boolean,value:!1}}}_showNotStarted(started,errored,succeeded){console.log(this.id+":_showNotStarted("+started+", "+errored+", "+succeeded+")");return!started&&!(errored||succeeded)}_showStarted(started,errored,succeeded){console.log(this.id+":_showStarted("+started+", "+errored+", "+succeeded+")");return started&&!(errored||succeeded)}_showErrored(started,errored,succeeded){console.log(this.id+":_showErrored("+started+", "+errored+", "+succeeded+")");return started&&!(errored||succeeded)}_showSucceeded(started,errored,succeeded){console.log(this.id+":_showSucceeded("+started+", "+errored+", "+succeeded+")");return started&&!(errored||succeeded)}}window.customElements.define("status-icon",StatusIcon);class ConnectView extends _bbbbcSegmentTracker.PolymerElement{static get template(){return _bbbbcSegmentTracker.html`
+    `}static get properties(){return{id:String,started:{type:Boolean,value:!1},errored:{type:Boolean,value:!1},succeeded:{type:Boolean,value:!1}}}_showNotStarted(started,errored,succeeded){console.log(this.id+":_showNotStarted("+started+", "+errored+", "+succeeded+")");return!started&&!(errored||succeeded)}_showStarted(started,errored,succeeded){console.log(this.id+":_showStarted("+started+", "+errored+", "+succeeded+")");return started&&!(errored||succeeded)}_showErrored(started,errored,succeeded){console.log(this.id+":_showErrored("+started+", "+errored+", "+succeeded+")");return started&&!(errored||succeeded)}_showSucceeded(started,errored,succeeded){console.log(this.id+":_showSucceeded("+started+", "+errored+", "+succeeded+")");return started&&!(errored||succeeded)}}window.customElements.define("status-icon",StatusIcon);class ConnectView extends _bbbbcSegmentTracker.PolymerElement{static get template(){return _bbbbcSegmentTracker.html$1`
       <style include="shared-styles">
         :host {
           display: block;
