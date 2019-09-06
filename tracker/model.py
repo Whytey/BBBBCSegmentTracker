@@ -4,7 +4,7 @@ from datetime import date, datetime
 
 from matchbox import database, models
 
-import config
+import tracker.config as config
 
 database.db_initialization(config.firestore_service_account)
 
