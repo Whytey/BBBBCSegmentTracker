@@ -1,16 +1,17 @@
-GET    /members
-GET    /members/<member_id>
+GET    /members                               (Returns {[member]}
+GET    /members/<member_id>                   (Returns {member}
+GET    /members/<member_id>/attempts          (Returns {member, [challenge, [attempt]]}
 GET    /members/<member_id>/avatar?size       (Returns a url for image)
-POST   /members/<member_id>/disconnect
-POST   /members/<member_id>/delete
-POST   /members/                              (??? Not sure we want this)
+POST   /members/<member_id>/disconnect        (Returns {member}
+POST   /members/<member_id>/delete            (Returns {member}
 
 
-GET    /challenges
-GET    /challenges/<challenge_id>
+GET    /challenges                            (Returns {[challenge]})
+GET    /challenges/<challenge_id>             (Returns {challenge})
+GET    /challenges/<challenge_id>/attempts    (Returns {challenge, [member [attempt]]})
 POST   /challenges
 
-GET    /attempts
+GET    /attempts/?member_id&segment_id
 PUT    /attempts/sync/?member_id&segment_id
 
 GET    /activity

@@ -174,23 +174,5 @@ def all_other_routes(the_path):
     return app.send_static_file(the_path)
 
 
-#
-# @app.route('/attempts/<challenge>', methods=['GET', 'POST'])
-# def attempts(challenge):
-#     if request.method == 'GET':
-#         c = Challenge.objects.get(id=challenge)
-#         # attempts = Attempt.objects.filter(challenge=c).get()
-#
-#         # Need to do the following to filter on only those attempts for the challenge.
-#         attempts = Attempt.objects.all()
-#         attempts = [a for a in attempts if a.challenge.id == c.id]
-#
-#         return render_template('attempts.html', challenge=c, attempts=attempts)
-#
-#     return redirect(url_for('attempts'))
-#
-#
-
-
 if __name__ == '__main__':
     app.run(debug=True)
