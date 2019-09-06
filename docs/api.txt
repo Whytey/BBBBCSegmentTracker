@@ -1,0 +1,23 @@
+GET    /members                               (Returns {[member]}
+GET    /members/<member_id>                   (Returns {member}
+GET    /members/<member_id>/attempts          (Returns {member, [challenge, [attempt]]}
+GET    /members/<member_id>/avatar?size       (Returns a url for image)
+POST   /members/<member_id>/disconnect        (Returns {member}
+POST   /members/<member_id>/delete            (Returns {member}
+
+
+GET    /challenges                            (Returns {[challenge]})
+GET    /challenges/<challenge_id>             (Returns {challenge})
+GET    /challenges/<challenge_id>/attempts    (Returns {challenge, [member [attempt]]})
+POST   /challenges
+
+GET    /attempts/?member_id&segment_id
+PUT    /attempts/sync/?member_id&segment_id
+
+GET    /activity
+
+GET    /connect?redirect_url                    (returns the URL for the button)
+POST   /connect?code                            (provides the aut response --> redirects to members-view)
+
+GET    /jobs
+GET    /jobs/<job_id>

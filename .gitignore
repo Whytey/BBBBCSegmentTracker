@@ -1,4 +1,6 @@
-
-/config.py
 /venv/
 /resources/bbbbc-firestore.json
+/config.py
+/polymer/workspace.code-workspace
+/polymer/build
+/polymer/node_modules
