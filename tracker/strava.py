@@ -4,8 +4,8 @@ import time
 
 from stravalib import Client
 
-import config
-from model import Member
+from tracker.model import Member
+import tracker.config as config
 
 logger = logging.getLogger(__name__)
 
