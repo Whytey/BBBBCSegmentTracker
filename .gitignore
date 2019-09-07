@@ -4,3 +4,5 @@
 /polymer/workspace.code-workspace
 /polymer/build
 /polymer/node_modules
+/tracker/config.py
+/tracker/resources/bbbbc-firestore.json

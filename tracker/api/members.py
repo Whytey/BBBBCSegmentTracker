@@ -47,6 +47,6 @@ app = Flask(__name__)
 members_bp = Blueprint(BP_NAME, __name__)
 api = Api(members_bp)
 
-api.add_resource(MemberAPI, '/members/<int:id>', endpoint=MEMBER_ENDPOINT)
 api.add_resource(MemberListAPI, '/members')
+api.add_resource(MemberAPI, '/members/<int:id>', endpoint=MEMBER_ENDPOINT)
 api.add_resource(MemberAvatarAPI, '/members/<int:id>/avatar')
