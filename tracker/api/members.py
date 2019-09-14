@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint
+from flask import Flask, Blueprint, current_app
 from flask_restful import Resource, fields, marshal, Api
 
 from tracker.model import Member
@@ -36,9 +36,12 @@ class MemberAPI(Resource):
 
 
 class MemberAvatarAPI(Resource):
+    def __init__(self):
+        self.app = current_app
+        self.strava = Strava(self.app.config['STRAVA_CLIENT_ID'], self.app.config['STRAVA_CLIENT_SECRET'])
+
     def get(self, id):
-        strava = Strava()
-        url = strava.get_member_avatar(id)
+        url = self.strava.get_member_avatar(id)
 
         return {"avatar": {"url": url}}
 

@@ -4,9 +4,11 @@ from datetime import date, datetime
 
 from matchbox import database, models
 
-import tracker.config as config
 
-database.db_initialization(config.firestore_service_account)
+class Firestore():
+
+    def __init__(self, config):
+        database.db_initialization(config.FIRESTORE_SERVICE_ACCOUNT)
 
 
 class BaseModel(models.Model):

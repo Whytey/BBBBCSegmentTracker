@@ -1,8 +1,6 @@
-from flask import Flask, Blueprint
+from flask import Flask, Blueprint, current_app
 from flask_restful import Resource, marshal, reqparse, Api
-from stravalib import Client
 
-import tracker.config as config
 from tracker.api.members import member_fields
 from tracker.model import Member
 from tracker.strava import Strava
@@ -21,19 +19,20 @@ class ConnectAPI(Resource):
                                       help='No authentication code provided {error_msg}', location='json')
         super(ConnectAPI, self).__init__()
 
+        self.app = current_app
+        self.strava = Strava(self.app.config['STRAVA_CLIENT_ID'], self.app.config['STRAVA_CLIENT_SECRET'])
+
     def get(self):
         args = self.get_parser.parse_args()
         redirect_url = args.get("redirect_url")
-        client = Client()
-        authorize_url = client.authorization_url(config.strava_client_id, redirect_url, state="response")
+        authorize_url = self.strava.get_redirect_url(self.client_id, redirect_url, state="response")
         return {"url": authorize_url}
 
     def post(self):
         args = self.post_parser.parse_args()
         code = args.get("code")
 
-        strava = Strava()
-        athlete, access_token, refresh_token, expires_at = strava.register_new_member(code)
+        athlete, access_token, refresh_token, expires_at = self.strava.register_new_member(code)
 
         member = Member.add(athlete, refresh_token, access_token, expires_at)
         return {"member": marshal(member.jsonify(), member_fields)}
