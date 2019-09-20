@@ -1,7 +1,7 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+import '@polymer/app-storage/app-localstorage/app-localstorage-document.js';
 import '@polymer/iron-ajax/iron-ajax.js';
 import '@polymer/iron-image/iron-image.js';
-import './my-config.js';
+import { html, PolymerElement } from '@polymer/polymer/polymer-element.js';
 
 class MemberAvatar extends PolymerElement {
   static get template() {
@@ -14,12 +14,12 @@ class MemberAvatar extends PolymerElement {
         }
       </style>
 
-      <my-config config="{{config}}"></my-config>
+      <app-localstorage-document key="config" data="{{appconfig}}"></app-localstorage-document>
 
       <iron-ajax
         id="getConnectAjax"
         auto
-        url="[[config.api]]/v1.0/members/[[memberId]]/avatar"
+        url="[[appconfig.api]]/v1.0/members/[[memberId]]/avatar"
         method="get"
         handle-as="json"
         last-response="{{avatar}}">

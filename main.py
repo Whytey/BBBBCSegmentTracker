@@ -13,7 +13,7 @@ from tracker.config import Development
 from tracker.config import Production
 from tracker.model import Firestore
 
-logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
 
 def create_app(config_object=Production):
@@ -39,7 +39,7 @@ def create_app(config_object=Production):
     def index():
         return app.send_static_file('index.html')
 
-    @app.route('/config')
+    @app.route('/appconfig.json')
     def config():
         """Provide a JSON object describing the configuration needed for the frontend"""
         api_url = app.config['API_URL']

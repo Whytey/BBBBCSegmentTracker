@@ -20,7 +20,9 @@ class ConnectAPI(Resource):
         super(ConnectAPI, self).__init__()
 
         self.app = current_app
-        self.strava = Strava(self.app.config['STRAVA_CLIENT_ID'], self.app.config['STRAVA_CLIENT_SECRET'])
+        self.client_id = self.app.config['STRAVA_CLIENT_ID']
+        self.client_secret = self.app.confif['STRAVA_CLIENT_SECRET']
+        self.strava = Strava(self.client_id, self.client_secret)
 
     def get(self):
         args = self.get_parser.parse_args()
