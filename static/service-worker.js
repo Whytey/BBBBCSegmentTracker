@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["index.html","7d991c79c42da0ac90b127e5321ab523"],["manifest.json","cc907d757c978bf973337cf6371baf94"],["src/bbbbc-segment-tracker.js","5d2c6a12420b792c2502f8537ab1f3c9"],["src/challenge-attempts-view.js","b06e6410711154e392c61077294beca8"],["src/challenges-view.js","0c7ef5df85adf098862627e1d3e79ada"],["src/connect-view.js","7289792250fe7a4dc878ac20558137f0"],["src/home-view.js","32411f7d3775cb2c9d7072ce8c18c206"],["src/members-view.js","0c14c5e9f0cdce7706d57b402a3a088b"],["src/my-view404.js","862aeb0aa35610818b530c7ef814d7f7"]];
+var precacheConfig = [["index.html","60051b8946328698360b662c093dcb84"],["manifest.json","cc907d757c978bf973337cf6371baf94"],["src/bbbbc-segment-tracker.js","21b1d6c5cb30a27149c20c0b011089fd"],["src/challenge-attempts-view.js","2d2fb12172b56fc699578d9be77bff99"],["src/challenges-view.js","56e6d59c0e5dc0230334333a67618bca"],["src/connect-view.js","7289792250fe7a4dc878ac20558137f0"],["src/home-view.js","32411f7d3775cb2c9d7072ce8c18c206"],["src/members-view.js","c89590dbee101589619ab6658ec81e1b"],["src/my-view404.js","862aeb0aa35610818b530c7ef814d7f7"]];
 var cacheName = 'sw-precache-v3--' + (self.registration ? self.registration.scope : '');
 
 

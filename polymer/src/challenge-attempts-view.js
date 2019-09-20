@@ -1,11 +1,12 @@
+import '@polymer/app-storage/app-localstorage/app-localstorage-document.js';
 import '@polymer/iron-ajax/iron-ajax.js';
 import '@polymer/iron-icons/iron-icons.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
 import { html, PolymerElement } from '@polymer/polymer/polymer-element.js';
-import './my-config.js';
-import './shared-styles.js';
-import './date-formatter.js'
 import '@vaadin/vaadin-grid/vaadin-grid.js';
+import './date-formatter.js';
+import './member-avatar.js';
+import './shared-styles.js';
 
 class ChallengeAttemptsView extends PolymerElement {
   static get template() {
@@ -25,12 +26,12 @@ class ChallengeAttemptsView extends PolymerElement {
 
       </style>
       
-      <my-config config="{{config}}"></my-config>
+      <app-localstorage-document key="config" data="{{appconfig}}"></app-localstorage-document>
 
       <iron-ajax
         id="getAttemptsAjax"
         auto
-        url="[[config.api]]/v1.0/attempts/[[challenge.id]]"
+        url="[[appconfig.api]]/v1.0/attempts/[[challenge.id]]"
         method="get"
         handle-as="json"
         last-response="{{attempts}}">
@@ -49,7 +50,9 @@ class ChallengeAttemptsView extends PolymerElement {
           </vaadin-grid-column>
           <vaadin-grid-column text-align="center">
             <template class="header">Attempt Timestamp</template>
-            <template>[[item.activity_timestamp]]</template>
+            <template>
+              <date-formatter datetime="[[item.activity_timestamp]]" format="UTC:dd-mmm-yy HH:MM"></date-formatter>
+            </template>
           </vaadin-grid-column>
           <vaadin-grid-column text-align="center">
             <template class="header">Recorded Time (s)</template>

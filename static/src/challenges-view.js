@@ -14,12 +14,12 @@ define(["./bbbbc-segment-tracker.js"],function(_bbbbcSegmentTracker){"use strict
 
       </style>
       
-      <my-config config="{{config}}"></my-config>
+      <app-localstorage-document key="config" data="{{appconfig}}"></app-localstorage-document>
 
       <iron-ajax
         id="getMembersAjax"
         auto
-        url="[[config.api]]/v1.0/challenges"
+        url="[[appconfig.api]]/v1.0/challenges"
         method="get"
         handle-as="json"
         last-response="{{challenges}}">

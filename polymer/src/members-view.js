@@ -1,3 +1,4 @@
+import '@polymer/app-storage/app-localstorage/app-localstorage-document.js';
 import '@polymer/iron-ajax/iron-ajax.js';
 import '@polymer/iron-icons/iron-icons.js';
 import '@polymer/paper-fab/paper-fab.js';
@@ -5,7 +6,6 @@ import '@polymer/paper-icon-button/paper-icon-button.js';
 import { html, PolymerElement } from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-grid/vaadin-grid.js';
 import './member-avatar.js';
-import './my-config.js';
 import './shared-styles.js';
 
 class MembersView extends PolymerElement {
@@ -26,12 +26,12 @@ class MembersView extends PolymerElement {
 
       </style>
       
-      <my-config config="{{config}}"></my-config>
+      <app-localstorage-document key="config" data="{{appconfig}}"></app-localstorage-document>
 
       <iron-ajax
         id="getMembersAjax"
         auto
-        url="[[config.api]]/v1.0/members"
+        url="[[appconfig.api]]/v1.0/members"
         method="get"
         handle-as="json"
         last-response="{{members}}">

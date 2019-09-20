@@ -1,25 +1,4 @@
-define(["./bbbbc-segment-tracker.js"],function(_bbbbcSegmentTracker){"use strict";class MemberAvatar extends _bbbbcSegmentTracker.PolymerElement{static get template(){return _bbbbcSegmentTracker.html$1`
-      <style>
-        :host {
-          display: block;
-
-          padding: 10px 20px;
-        }
-      </style>
-
-      <my-config config="{{config}}"></my-config>
-
-      <iron-ajax
-        id="getConnectAjax"
-        auto
-        url="[[config.api]]/v1.0/members/[[memberId]]/avatar"
-        method="get"
-        handle-as="json"
-        last-response="{{avatar}}">
-      </iron-ajax>
-
-      <iron-image style="width:32px; height:32px; background-color: blue; display: block;" sizing="contain" preload fade src="[[avatar.avatar.url]]"></iron-image>
-    `}static get properties(){return{memberId:{type:Number,reflectToAttribute:!0}}}}window.customElements.define("member-avatar",MemberAvatar);class MembersView extends _bbbbcSegmentTracker.PolymerElement{static get template(){return _bbbbcSegmentTracker.html$1`
+define(["./bbbbc-segment-tracker.js"],function(_bbbbcSegmentTracker){"use strict";class MembersView extends _bbbbcSegmentTracker.PolymerElement{static get template(){return _bbbbcSegmentTracker.html$1`
       <style include="shared-styles">
         :host {
           display: block;
@@ -35,12 +14,12 @@ define(["./bbbbc-segment-tracker.js"],function(_bbbbcSegmentTracker){"use strict
 
       </style>
       
-      <my-config config="{{config}}"></my-config>
+      <app-localstorage-document key="config" data="{{appconfig}}"></app-localstorage-document>
 
       <iron-ajax
         id="getMembersAjax"
         auto
-        url="[[config.api]]/v1.0/members"
+        url="[[appconfig.api]]/v1.0/members"
         method="get"
         handle-as="json"
         last-response="{{members}}">
