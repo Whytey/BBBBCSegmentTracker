@@ -14,12 +14,12 @@ define(["./bbbbc-segment-tracker.js"],function(_bbbbcSegmentTracker){"use strict
 
       </style>
       
-      <my-config config="{{config}}"></my-config>
+      <app-localstorage-document key="config" data="{{appconfig}}"></app-localstorage-document>
 
       <iron-ajax
         id="getAttemptsAjax"
         auto
-        url="[[config.api]]/v1.0/attempts/[[challenge.id]]"
+        url="[[appconfig.api]]/v1.0/attempts/[[challenge.id]]"
         method="get"
         handle-as="json"
         last-response="{{attempts}}">
@@ -38,7 +38,9 @@ define(["./bbbbc-segment-tracker.js"],function(_bbbbcSegmentTracker){"use strict
           </vaadin-grid-column>
           <vaadin-grid-column text-align="center">
             <template class="header">Attempt Timestamp</template>
-            <template>[[item.activity_timestamp]]</template>
+            <template>
+              <date-formatter datetime="[[item.activity_timestamp]]" format="UTC:dd-mmm-yy HH:MM"></date-formatter>
+            </template>
           </vaadin-grid-column>
           <vaadin-grid-column text-align="center">
             <template class="header">Recorded Time (s)</template>
